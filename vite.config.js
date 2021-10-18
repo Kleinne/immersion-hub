@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
+import path from 'path'
 
 export default defineConfig(({ command }) => {
     return {
@@ -12,6 +13,11 @@ export default defineConfig(({ command }) => {
                 input: {
                     app: "app_client",
                 },
+            },
+        },
+        resolve: {
+            alias: {
+              '@': path.resolve(__dirname, '/app_client'),
             },
         },
         server: {

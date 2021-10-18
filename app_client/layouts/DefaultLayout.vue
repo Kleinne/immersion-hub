@@ -3,5 +3,8 @@
 </script>
 
 <template>
-    <div>default layout</div>
+    <div>
+        default layout
+        <slot />
+    </div>
 </template>

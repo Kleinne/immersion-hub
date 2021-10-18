@@ -1,10 +1,11 @@
-
 <script setup name="Home">
+const some = ref('adwadawd');
 </script>
 
 <template>
-    <div>
-        "it just fucking works" - Todd Howard
-        <slot />
-    </div>
+  <div>
+    {{ some }}
+    "it just fucking works" - Todd Howard
+    <slot />
+  </div>
 </template>

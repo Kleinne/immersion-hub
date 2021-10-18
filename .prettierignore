@@ -1,0 +1,11 @@
+# Laravel
+app
+bootstrap
+config
+database
+routes
+storage
+tests
+vendor
+
+node_modules

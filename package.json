@@ -1,20 +1,27 @@
 {
-    "private": true,
-    "scripts": {
-        "serve": "vite --open"
-    },
-    "dependencies": {
-        "@inertiajs/inertia": "^0.10.1",
-        "@inertiajs/inertia-vue3": "^0.5.2",
-        "vue": "3.2"
-    },
-    "devDependencies": {
-        "@vitejs/plugin-vue": "^1.9.3",
-        "@vue/compiler-sfc": "^3.2.20",
-        "autoprefixer": "^10.3.7",
-        "axios": "^0.21",
-        "postcss": "^8.3.9",
-        "tailwindcss": "^2.2.16",
-        "vite": "^2.6.7"
-    }
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "serve": "vite --open"
+  },
+  "dependencies": {
+    "@inertiajs/inertia": "^0.10.1",
+    "@inertiajs/inertia-vue3": "^0.5.2",
+    "vue": "3.2",
+    "vue-global-api": "^0.4.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.9.3",
+    "@vue/compiler-sfc": "^3.2.20",
+    "autoprefixer": "^10.3.7",
+    "axios": "^0.21",
+    "eslint": "^8.0.1",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-vue": "^7.19.1",
+    "postcss": "^8.3.9",
+    "prettier": "^2.4.1",
+    "tailwindcss": "^2.2.16",
+    "vite": "^2.6.7"
+  }
 }

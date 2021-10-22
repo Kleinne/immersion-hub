@@ -17,7 +17,7 @@ export default defineConfig(({ command }) => {
     },
     resolve: {
       alias: {
-        /* eslint-disable no-undef */
+        // TODO configure eslint
         '@': path.resolve(__dirname, '/app_client'),
       },
     },

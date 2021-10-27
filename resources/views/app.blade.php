@@ -7,6 +7,8 @@
 
     <script type="module" src="http://localhost:3030/@vite/client"></script>
     <script type="module" src="http://localhost:3030/app_client/index.js"></script>
+
+    @routes
 </head>
 
 <body>

@@ -1,5 +1,5 @@
 import { createApp, h } from 'vue';
-import { createInertiaApp } from '@inertiajs/inertia-vue3';
+import { createInertiaApp, Link } from '@inertiajs/inertia-vue3';
 import 'vue-global-api';
 
 import './bootstrap.js';
@@ -18,6 +18,9 @@ createInertiaApp({
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
       .use(plugin)
+      // Ziggy route
+      .mixin({ methods: { route: window.route } })
+      .component('InertiaLink', Link)
       .mount(el);
   },
 });

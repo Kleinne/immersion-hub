@@ -1,11 +1,8 @@
-<script setup name="Home">
-const some = ref('adwadawd');
-</script>
+<script setup name="Home"></script>
 
 <template>
   <div>
-    {{ some }}
-    "it just fucking works" - Todd Howard
+    hello, {{ $page.props.user.name }}
     <slot />
   </div>
 </template>

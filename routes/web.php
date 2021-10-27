@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BookSubmitController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/', [HomeController::class, 'index'])->name('app.home');
+
+Route::get('/contribute', [BookSubmitController::class, 'index'])->name('app.contribute');

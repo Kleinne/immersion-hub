@@ -17,7 +17,7 @@ specifiers:
   eslint-plugin-prettier: ^4.0.0
   eslint-plugin-vue: ^7.19.1
   postcss: ^8.3.9
-  prettier: ^2.4.1
+  prettier: 2.4.1
   tailwindcss: ^2.2.16
   vite: ^2.6.7
   vue: '3.2'
@@ -2412,8 +2412,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vue-demi/0.11.4_vue@3.2.20:
-    resolution: {integrity: sha512-/3xFwzSykLW2HiiLie43a+FFgNOcokbBJ+fzvFXd0r2T8MYohqvphUyDQ8lbAwzQ3Dlcrb1c9ykifGkhSIAk6A==}
+  /vue-demi/0.12.0_vue@3.2.20:
+    resolution: {integrity: sha512-eggsbQSQEJKlvQrtrJLx4J44MIVq5+Z7QetIEh1Na+ZWLgt5Fq0qskQ1QmckTTEoFcUdn36c4K23EjtXZhws7w==}
     engines: {node: '>=12'}
     hasBin: true
     requiresBuild: true
@@ -2449,7 +2449,7 @@ packages:
     resolution: {integrity: sha512-283vpYOhVHJCpMkjNVEwZdgaAb+Y93zFaXGAWTI378MLoNuwQydjD/BAy1e81QYEmyA+JbxqcmMZVWcM9rbriw==}
     dependencies:
       eslint-config-vue-global-api: 0.4.1
-      vue-demi: 0.11.4_vue@3.2.20
+      vue-demi: 0.12.0_vue@3.2.20
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue

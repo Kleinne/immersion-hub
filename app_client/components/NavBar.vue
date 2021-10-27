@@ -8,5 +8,14 @@ defineProps({
 </script>
 
 <template>
-  <div class="fixed inset-x-0 top-0 flex w-full h-12 bg-gray-100"></div>
+  <div
+    class="fixed inset-x-0 top-0 flex items-center w-full h-12 space-x-10 bg-lred-500/60"
+  >
+    <div class="ml-80">immersion hub</div>
+    <div>Home</div>
+    <div>Reviews</div>
+    <div>Recommendations</div>
+    <div>Community</div>
+    <InertiaLink :href="route('app.contribute')">Contribute</InertiaLink>
+  </div>
 </template>

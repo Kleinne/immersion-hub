@@ -18,7 +18,6 @@ createInertiaApp({
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
       .use(plugin)
-      // Ziggy route
       .mixin({ methods: { route: window.route } })
       .component('InertiaLink', Link)
       .mount(el);

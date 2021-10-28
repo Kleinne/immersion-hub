@@ -5,7 +5,8 @@ module.exports = {
     es6: true,
   },
   extends: [
-    'plugin:vue/vue3-recommended',
+    'plugin:vue/vue3-strongly-recommended',
+    'eslint:recommended',
     'airbnb-base',
     'vue-global-api',
     'plugin:prettier/recommended',

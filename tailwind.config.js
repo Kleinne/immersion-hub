@@ -3,8 +3,23 @@ module.exports = {
   purge: ['./app_client/**/*.{vue,js}'],
   theme: {
     colors: {
-      lred: {
-        500: '#ED7260',
+      base: {
+        500: '#eee2dc',
+      },
+      primary: {
+        500: '#ac3b61',
+      },
+      secondary: {
+        500: '#3bac86',
+      },
+      soft: {
+        500: '#edc7b7',
+      },
+      gray: {
+        500: '#bab2b5',
+      },
+      'dark-blue': {
+        500: '#123c69',
       },
     },
   },

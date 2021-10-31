@@ -1,9 +1,8 @@
 import { createApp, h } from 'vue';
 import { createInertiaApp, Link } from '@inertiajs/inertia-vue3';
 import 'vue-global-api';
-
-import './bootstrap.js';
-import './tailwind.css';
+import './assets/bootstrap.js';
+import './assets/tailwind.css';
 
 import DefaultLayout from './layouts/DefaultLayout.vue';
 

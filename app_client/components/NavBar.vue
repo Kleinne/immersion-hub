@@ -1,18 +1,42 @@
 <script setup name="NavBar">
-/* can't access route in script setup */
+/* can't access route() in script setup */
+const links = [
+  {
+    route: 'app.home',
+    name: 'Home',
+  },
+  {
+    route: 'app.home',
+    name: 'Reviews',
+  },
+  {
+    route: 'app.home',
+    name: 'Recommendations',
+  },
+  {
+    route: 'app.home',
+    name: 'Community',
+  },
+  {
+    route: 'contribute.index',
+    name: 'Contribute',
+  },
+];
 </script>
 
 <template>
-  <div
+  <nav
     class="fixed inset-x-0 top-0 flex items-center w-full h-12 space-x-10 bg-soft-500"
   >
     <InertiaLink :href="route('app.home')" class="ml-80">
       immersion hub
     </InertiaLink>
-    <InertiaLink :href="route('app.home')">Home</InertiaLink>
-    <InertiaLink :href="route('app.home')">Reviews</InertiaLink>
-    <InertiaLink :href="route('app.home')">Recommendations</InertiaLink>
-    <InertiaLink :href="route('app.home')">Community</InertiaLink>
-    <InertiaLink :href="route('contribute.index')">Contribute</InertiaLink>
-  </div>
+    <InertiaLink
+      v-for="link in links"
+      :key="link.name"
+      :href="route(link.route)"
+    >
+      {{ link.name }}
+    </InertiaLink>
+  </nav>
 </template>

@@ -2,27 +2,28 @@ module.exports = {
   mode: 'jit',
   purge: ['./app_client/**/*.{vue,js}'],
   theme: {
-    colors: {
-      base: {
-        500: '#eee2dc',
-      },
-      primary: {
-        500: '#ac3b61',
-      },
-      secondary: {
-        500: '#3bac86',
-      },
-      soft: {
-        500: '#edc7b7',
-      },
-      gray: {
-        500: '#bab2b5',
-      },
-      'dark-blue': {
-        500: '#123c69',
+    extend: {
+      colors: {
+        primary: {
+          500: '#9df9ef',
+        },
+        secondary: {
+          500: '#ffa8b6',
+        },
+        blue: {
+          500: '#51e2f5',
+        },
+        sand: {
+          500: '#edf7f6',
+        },
+        brown: {
+          500: '#a28089',
+        },
       },
     },
   },
-  variants: {},
+  variants: {
+    extend: {},
+  },
   plugins: [],
 };

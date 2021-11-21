@@ -18,6 +18,7 @@ module.exports = {
   },
   plugins: ['vue'],
   rules: {
+    'import/prefer-default-export': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'import/extensions': ['error', 'ignorePackages'],
     'no-unused-vars': 'warn',

@@ -5,6 +5,7 @@ import './assets/bootstrap.js';
 import './assets/tailwind.css';
 
 import DefaultLayout from './layouts/DefaultLayout.vue';
+import BaseIcon from './components/BaseIcon.vue';
 
 const setDefaultLayout = ({ default: page }) => {
   // eslint-disable-next-line no-param-reassign
@@ -19,6 +20,7 @@ createInertiaApp({
       .use(plugin)
       .mixin({ methods: { route: window.route } })
       .component('InertiaLink', Link)
+      .component('BaseIcon', BaseIcon)
       .mount(el);
   },
 });

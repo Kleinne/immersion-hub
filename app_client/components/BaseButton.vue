@@ -38,9 +38,14 @@ const tag = computed(() => {
 <template>
   <component
     :is="tag"
-    class="px-3 outline-none py-2 text-sm tracking-wider rounded-lg shadow-idle bg-ired-500 text-white | hover:bg-ired-500/70 hover:shadow-hover | focus:shadow-idle focus:bg-ired-500"
+    :disabled="disabled || loading"
+    class="px-3 flex items-center justify-center outline-none py-2 text-sm tracking-wider rounded-lg shadow-idle bg-ired-500 text-white | hover:bg-ired-500/70 hover:shadow-hover | focus:bg-ired-500/80"
   >
-    <div v-if="loading"></div>
+    <BaseIcon
+      v-if="loading"
+      class="w-5 h-5 text-white animate-spin"
+      icon="loading"
+    />
     <slot v-else />
   </component>
 </template>

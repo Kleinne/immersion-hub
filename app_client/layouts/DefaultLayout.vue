@@ -5,9 +5,8 @@ import NavBar from '../components/NavBar.vue';
 <template>
   <div>
     <NavBar />
-    <div class="mt-12">
-      default layout
+    <main class="w-full h-screen pt-24 overflow-y-auto px-80">
       <slot />
-    </div>
+    </main>
   </div>
 </template>

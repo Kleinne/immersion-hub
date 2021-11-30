@@ -1,24 +1,23 @@
 <script setup name="NavBar">
-/* can't access route() in script setup */
 const links = [
   {
-    route: 'app.home',
+    link: 'app.home',
     name: 'Home',
   },
   {
-    route: 'app.home',
+    link: 'app.home',
     name: 'Reviews',
   },
   {
-    route: 'app.home',
+    link: 'app.home',
     name: 'Recommendations',
   },
   {
-    route: 'app.home',
+    link: 'app.home',
     name: 'Community',
   },
   {
-    route: 'contribute.index',
+    link: 'contribute.index',
     name: 'Contribute',
   },
 ];
@@ -26,17 +25,18 @@ const links = [
 
 <template>
   <nav
-    class="fixed inset-x-0 top-0 flex items-center w-full h-12 space-x-10 bg-soft-500"
+    class="fixed inset-x-0 top-0 flex items-center w-full space-x-10 bg-white border-b-2 h-14 border-jet-500"
   >
-    <InertiaLink :href="route('app.home')" class="ml-80">
+    <InertiaLink :href="route('app.home')" class="mr-32 ml-80">
       immersion hub
     </InertiaLink>
     <InertiaLink
-      v-for="link in links"
-      :key="link.name"
-      :href="route(link.route)"
+      v-for="{ name, link } in links"
+      class="font-bold hover:text-ired-500"
+      :key="name"
+      :href="route(link)"
     >
-      {{ link.name }}
+      {{ name }}
     </InertiaLink>
   </nav>
 </template>

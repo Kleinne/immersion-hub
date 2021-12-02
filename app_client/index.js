@@ -3,6 +3,7 @@ import { createInertiaApp, Link } from '@inertiajs/inertia-vue3';
 import 'vue-global-api';
 import './assets/bootstrap.js';
 import './assets/tailwind.css';
+import './features/useVeeValidations.js';
 
 import DefaultLayout from './layouts/DefaultLayout.vue';
 import BaseIcon from './components/BaseIcon.vue';

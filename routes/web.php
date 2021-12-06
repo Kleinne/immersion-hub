@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('app.home');
+Route::get('/', fn () => redirect()->route('app.home'));
+
+Route::get('/home', [HomeController::class, 'index'])->name('app.home');
 
 Route::get('/contribute', [BooksSubmitController::class, 'index'])->name('contribute.index');
 

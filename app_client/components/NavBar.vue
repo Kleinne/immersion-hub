@@ -1,27 +1,4 @@
-<script setup name="NavBar">
-const links = [
-  {
-    link: 'app.home',
-    name: 'Home',
-  },
-  {
-    link: 'app.home',
-    name: 'Reviews',
-  },
-  {
-    link: 'app.home',
-    name: 'Recommendations',
-  },
-  {
-    link: 'app.home',
-    name: 'Community',
-  },
-  {
-    link: 'contribute.index',
-    name: 'Contribute',
-  },
-];
-</script>
+<script setup name="NavBar"></script>
 
 <template>
   <nav
@@ -31,12 +8,39 @@ const links = [
       immersion hub
     </InertiaLink>
     <InertiaLink
-      v-for="{ name, link } in links"
       class="font-bold hover:text-ired-500"
-      :key="name"
-      :href="route(link)"
+      :class="{ 'text-ired-500': $page.url.startsWith('/home') }"
+      :href="route('app.home')"
     >
-      {{ name }}
+      Home
+    </InertiaLink>
+    <InertiaLink
+      class="font-bold hover:text-ired-500"
+      :class="{ 'text-ired-500': $page.url.startsWith('/reviews') }"
+      :href="route('app.home')"
+    >
+      Reviews
+    </InertiaLink>
+    <InertiaLink
+      class="font-bold hover:text-ired-500"
+      :class="{ 'text-ired-500': $page.url.startsWith('/recommendations') }"
+      :href="route('app.home')"
+    >
+      Recommendations
+    </InertiaLink>
+    <InertiaLink
+      class="font-bold hover:text-ired-500"
+      :class="{ 'text-ired-500': $page.url.startsWith('/community') }"
+      :href="route('app.home')"
+    >
+      Community
+    </InertiaLink>
+    <InertiaLink
+      class="font-bold hover:text-ired-500"
+      :class="{ 'text-ired-500': $page.url.startsWith('/contribute') }"
+      :href="route('contribute.index')"
+    >
+      Contribute
     </InertiaLink>
   </nav>
 </template>

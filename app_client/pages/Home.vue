@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    hello, {{ $page.props.user.name }}
+    hello, {{ $page.props.auth.user.name }}
     <slot />
   </div>
 </template>

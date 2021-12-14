@@ -9,14 +9,12 @@ import './features/useVeeValidations.js';
 import DefaultLayout from './layouts/DefaultLayout.vue';
 import BaseIcon from './components/BaseIcon.vue';
 
-const setDefaultLayout = ({ default: page }) => {
-  // eslint-disable-next-line no-param-reassign
-  page.layout = page.layout === undefined ? DefaultLayout : page.layout;
-  return page;
-};
-
 createInertiaApp({
-  resolve: async (name) => import(`./pages/${name}.vue`).then(setDefaultLayout),
+  resolve: async (name) => {
+    const page = (await import(`./pages/${name}.vue`)).default;
+    page.layout ??= DefaultLayout;
+    return page;
+  },
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
       .use(plugin)

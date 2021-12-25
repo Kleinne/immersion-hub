@@ -4,12 +4,19 @@ defineProps({
     type: String,
     default: '',
   },
+  subtitle: {
+    type: String,
+    default: '',
+  },
 });
 </script>
 
 <template>
   <div class="p-10">
-    <h1 class="mb-10 text-lg font-semibold">{{ title }}</h1>
+    <div class="mb-10 space-y-2">
+      <h1 class="text-lg font-semibold" v-if="title">{{ title }}</h1>
+      <h5 class="text-sm" v-if="subtitle">{{ subtitle }}</h5>
+    </div>
     <slot />
   </div>
 </template>

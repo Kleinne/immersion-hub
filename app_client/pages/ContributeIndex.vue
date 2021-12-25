@@ -11,7 +11,10 @@ const { form, schema } = useContributeForm();
 </script>
 
 <template>
-  <BaseCard title="Help me grow the database by submitting a new book entry!">
+  <BaseCard
+    title="Add a New Book To the Database"
+    subtitle="Please make sure to check if the book doesn't already exist - we don't want duplicates!"
+  >
     <BaseForm class="space-y-5">
       <FormInput focus v-model="form.titleJp" v-bind="schema.titleJp" />
       <FormInput v-model="form.volumeTitleJp" v-bind="schema.volumeTitleJp" />

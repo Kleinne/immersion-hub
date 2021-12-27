@@ -1,5 +1,5 @@
 import { createApp, h } from 'vue';
-import { createInertiaApp, Link } from '@inertiajs/inertia-vue3';
+import { createInertiaApp, Link, Head } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
 import 'vue-global-api';
 import './assets/bootstrap.js';
@@ -20,6 +20,7 @@ createInertiaApp({
       .use(plugin)
       .mixin({ methods: { route: window.route } })
       .component('InertiaLink', Link)
+      .component('InertiaHead', Head)
       .component('BaseIcon', BaseIcon)
       .mount(el);
   },

@@ -32,6 +32,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  inline: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 const inputRef = ref(null);
@@ -45,8 +49,11 @@ if (props.focus) {
 
 <template>
   <div :class="{ 'w-full': full }">
-    <label class="flex flex-col space-y-1">
-      <span class="ml-1 text-sm" :for="name">
+    <label
+      class="flex"
+      :class="{ 'items-center': inline, 'flex-col space-y-1': !inline }"
+    >
+      <span class="text-sm" :class="{ 'w-60': inline }" :for="name">
         {{ label }}
       </span>
       <input

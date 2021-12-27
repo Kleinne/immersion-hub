@@ -11,7 +11,7 @@ const { form, schema } = useContributeForm();
 </script>
 
 <template>
-  <InertiaHead title="Submit a Book"></InertiaHead>
+  <InertiaHead title="Submit a Book" />
 
   <BaseCard
     title="Add a New Book To the Database"

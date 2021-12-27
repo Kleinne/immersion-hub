@@ -11,6 +11,8 @@ const { form, schema } = useContributeForm();
 </script>
 
 <template>
+  <InertiaHead title="Submit a Book"></InertiaHead>
+
   <BaseCard
     title="Add a New Book To the Database"
     subtitle="Please make sure to check if the book doesn't already exist - we don't want duplicates!"

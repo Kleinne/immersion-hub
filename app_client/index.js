@@ -24,6 +24,7 @@ createInertiaApp({
       .component('BaseIcon', BaseIcon)
       .mount(el);
   },
+  title: (title) => (title ? `Immersion Hub | ${title}` : 'Immersion Hub'),
 });
 
 InertiaProgress.init({

@@ -1,0 +1,26 @@
+{
+  "defineProps": {
+    "prefix": "defineProps",
+    "body": ["const props = defineProps({$0});"],
+    "description": "defines props"
+  },
+  "defineEmits": {
+    "prefix": "defineEmits",
+    "body": ["const emit = defineEmits(['${1:click}'$0]);"],
+    "description": "defines emit"
+  },
+  "vprops": {
+    "prefix": "vprops",
+    "body": ["$1: {", "  type: ${2:String},", "  default: ${3:null},", "},"],
+    "description": "defines a prop"
+  },
+  "vbasens": {
+    "prefix": "vbasens",
+    "body": [
+      "<script setup name=\"${1}\">",
+      "</script>",
+      "<template>$0</template>"
+    ],
+    "description": "vue component template"
+  }
+}

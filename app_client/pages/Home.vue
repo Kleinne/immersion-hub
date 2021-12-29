@@ -1,8 +1,8 @@
 <script setup name="Home">
 defineProps({
-  users: {
-    type: Object,
-    default: () => ({}),
+  books: {
+    type: Array,
+    default: () => [],
   },
 });
 </script>
@@ -14,7 +14,7 @@ defineProps({
     hello, {{ $page.props.auth.user.name }}
 
     <ul>
-      <li v-for="user in users.data" :key="user.id" v-text="user.name"></li>
+      <li v-for="book in books" :key="book.id" v-text="book.title"></li>
     </ul>
     <slot />
   </div>

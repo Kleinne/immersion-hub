@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\User;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $users = User::paginate(5)->through(fn ($user) => [
-            'id' => $user->id,
-            'name' => $user->name
+        $books = Book::all()->map(fn ($book) => [
+            'id' => $book->id,
+            'title' => $book->title
         ]);
 
         return inertia('Home', [
-            'users' => $users
+            'books' => $books
         ]);
     }
 }

@@ -15,6 +15,6 @@ class BookSeeder extends Seeder
      */
     public function run()
     {
-        Excel::import(new BooksImport, public_path('files/books.xlsx'));
+        Excel::import(new BooksImport, public_path('imports/books.xlsx'));
     }
 }

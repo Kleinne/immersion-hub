@@ -8,7 +8,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $users = User::all()->map(fn ($user) => [
+        $users = User::paginate(5)->through(fn ($user) => [
+            'id' => $user->id,
             'name' => $user->name
         ]);
 

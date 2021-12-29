@@ -1,4 +1,4 @@
-<script setup name="ContributeIndex">
+<script setup name="BooksNewIndex">
 import { useContributeForm } from '../features/useContributeForm.js';
 
 import FormInput from '../components/FormInput.vue';

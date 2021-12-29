@@ -8,6 +8,6 @@ class BooksSubmitController extends Controller
 {
     public function index()
     {
-        return inertia('ContributeIndex');
+        return inertia('BooksNewIndex');
     }
 }

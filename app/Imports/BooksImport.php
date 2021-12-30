@@ -24,8 +24,18 @@ class BooksImport implements ToCollection
                 return;
             }
 
+            $UNIX_DATE = ($row[3] - 25569) * 86400;
+            $date = gmdate("Y-m-d", $UNIX_DATE);
+
             Book::create([
-                'title' => $row[0],
+                'title' => $row[1],
+                'title-en' => $row[2],
+                'title-romaji' => $row[4],
+                'publication_date' => $date,
+                'volume' => $row[0],
+                'pages' => $row[5],
+                'isbn' => $row[12],
+                'cover' => $row[13],
             ]);
         }
     }

@@ -4,6 +4,21 @@ export const useSubmitBookForm = () => {
   const subtitle = `Please make sure to check if the book doesn't already exist.
                     Refer to tooltips for information on how to correctly fill in the form.`;
 
+  const months = [
+    { name: 'January', value: 1 },
+    { name: 'February', value: 2 },
+    { name: 'March', value: 3 },
+    { name: 'April', value: 4 },
+    { name: 'May', value: 5 },
+    { name: 'June', value: 6 },
+    { name: 'July', value: 7 },
+    { name: 'August', value: 8 },
+    { name: 'September', value: 9 },
+    { name: 'October', value: 10 },
+    { name: 'November', value: 11 },
+    { name: 'December', value: 12 },
+  ];
+
   const form = reactive({
     title: null,
     title_en: null,
@@ -12,7 +27,11 @@ export const useSubmitBookForm = () => {
     pages: null,
     author: [],
     publisher: null,
-    published: null,
+    published: {
+      year: null,
+      month: months[0],
+      day: null,
+    },
   });
 
   // TODO move english title to aliases
@@ -62,7 +81,8 @@ export const useSubmitBookForm = () => {
     published: {
       name: 'published',
       label: 'Published',
-      component: 'DateField',
+      component: 'FormBookDateField',
+      months,
     },
     volume: {
       name: 'volume',

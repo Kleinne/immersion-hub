@@ -36,8 +36,9 @@ if (props.focus) {
     <label
       class="flex justify-start"
       :class="{ 'items-center': inline, 'flex-col space-y-1': !inline }"
+      :for="field.name"
     >
-      <span class="text-sm min-w-[150px]" :for="field.name">
+      <span class="text-sm min-w-[150px]">
         {{ field.label }}
       </span>
       <input

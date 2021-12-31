@@ -16,7 +16,7 @@ defineProps({
 </script>
 
 <template>
-  <form :action="action" class="max-w-lg">
+  <form :action="action" class="max-w-xl">
     <slot />
 
     <div class="flex justify-end">

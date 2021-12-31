@@ -1,7 +1,8 @@
 <script setup name="FormField">
-import { useVModelProps } from '../features/useVModel.js';
+import { useVModel, useVModelProps } from '../features/useVModel.js';
 
 import FormTextField from './FormTextField.vue';
+import FormBookDateField from './FormBookDateField.vue';
 
 const emit = defineEmits(['update:modelValue']);
 
@@ -15,29 +16,14 @@ const props = defineProps({
 
 const COMPONENTS = {
   FormTextField,
+  FormBookDateField,
 };
 
 const component = computed(
   () => COMPONENTS[props.field.component] || FormTextField,
 );
 
-const inputValue = ref(props.modelValue);
-
-watch(
-  () => inputValue.value,
-  (value) => {
-    emit.updateModelValue(value);
-  },
-  { deep: true },
-);
-
-watch(
-  () => props.modelValue,
-  (value) => {
-    inputValue.value = value;
-  },
-  { deep: true },
-);
+const { inputValue } = useVModel(props, emit);
 </script>
 
 <template>

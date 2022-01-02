@@ -1,6 +1,10 @@
 module.exports = {
-  mode: 'jit',
-  purge: ['./app_client/**/*.{vue,js}'],
+  content: [
+    './app_client/components/**/*.vue',
+    './app_client/pages/**/*.vue',
+    './app_client/layouts/**/*.vue',
+    './app_client/features/**/*.js',
+  ],
   theme: {
     extend: {
       colors: {
@@ -35,19 +39,4 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
 };
-
-// --opb-theme-shadow-input-idle: 0px 0px 4px rgba(120, 120, 120, 0.4);
-// --opb-theme-shadow-input-hover: 0px 0px 4px #4200ff;
-// --opb-theme-shadow-input-focus: 0px 0px 4px rgba(66, 0, 255, 0.4);
-// --opb-theme-shadow-input-error: 0px 0px 4px rgba(255, 56, 80, 0.4);
-// --opb-theme-shadow-sm-idle: 0px 0px 5px rgba(0, 0, 0, 0.4);
-// --opb-theme-shadow-sm-hover: 0px 0px 5px rgba(66, 0, 255, 0.4);
-// --opb-theme-shadow-idle: 0px 0px 10px rgba(0, 0, 0, 0.15);
-// --opb-theme-shadow-hover: 0px 0px 10px rgba(66, 0, 255, 0.4);
-// --opb-theme-shadow-btn-idle: 0px 0px 10px rgba(0, 0, 0, 0.05);
-// --opb-theme-shadow-btn-hover: 0px 0px 10px rgba(0, 0, 0, 0.4);

@@ -12,10 +12,6 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  focus: {
-    type: Boolean,
-    default: false,
-  },
   inline: {
     type: Boolean,
     default: true,
@@ -27,13 +23,6 @@ const props = defineProps({
 });
 
 const { inputValue } = useVModel(props, emit);
-
-const inputRef = ref(null);
-if (props.focus) {
-  nextTick(() => {
-    inputRef.value.focus();
-  });
-}
 </script>
 
 <template>
@@ -53,7 +42,6 @@ if (props.focus) {
             'shadow-red-500': errors,
             'hover:border-violet-500 focus:border-violet-500 hover:shadow-input-hover focus:shadow-input-focus': !errors,
           }"
-          ref="inputRef"
           v-model="inputValue"
           v-bind="$attrs"
           :id="field.name"

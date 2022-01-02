@@ -14,6 +14,8 @@ const props = defineProps({
   },
 });
 
+const errors = inject('submitBookFormErrors');
+
 const COMPONENTS = {
   FormTextField,
   FormBookDateField,
@@ -27,5 +29,10 @@ const { inputValue } = useVModel(props, emit);
 </script>
 
 <template>
-  <component v-model="inputValue" :is="component" :field="field" />
+  <component
+    v-model="inputValue"
+    :is="component"
+    :field="field"
+    :errors="errors[field.name]"
+  />
 </template>

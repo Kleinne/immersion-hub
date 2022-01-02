@@ -1,3 +1,5 @@
+import { useForm } from '@inertiajs/inertia-vue3';
+
 export const useSubmitBookForm = () => {
   const title = 'Add a New Book To the Database';
 
@@ -19,7 +21,7 @@ export const useSubmitBookForm = () => {
     { name: 'December', value: 12 },
   ];
 
-  const form = reactive({
+  const form = useForm({
     title: null,
     title_en: null,
     title_romaji: null,
@@ -27,6 +29,7 @@ export const useSubmitBookForm = () => {
     pages: null,
     author: [],
     publisher: null,
+    isbn: null,
     published: {
       year: null,
       month: months[0],
@@ -66,6 +69,12 @@ export const useSubmitBookForm = () => {
       rules: 'max:255',
       type: 'number',
     },
+    isbn: {
+      name: 'isbn',
+      label: 'ISBN',
+      rules: 'max:255',
+      type: 'number',
+    },
     author: {
       name: 'author',
       label: 'Author',
@@ -92,10 +101,15 @@ export const useSubmitBookForm = () => {
     },
   }));
 
+  const onSubmit = () => {
+    form.post('new');
+  };
+
   return {
     title,
     subtitle,
     form,
     schema,
+    onSubmit,
   };
 };

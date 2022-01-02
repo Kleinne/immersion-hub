@@ -37,10 +37,10 @@
     </InertiaLink>
     <InertiaLink
       class="font-bold hover:text-ired-500"
-      :class="{ 'text-ired-500': $page.url.startsWith('/contribute') }"
-      :href="route('contribute.index')"
+      :class="{ 'text-ired-500': $page.url.startsWith('/books/new') }"
+      :href="route('books.new')"
     >
-      Contribute
+      Add a Book
     </InertiaLink>
   </nav>
 </template>

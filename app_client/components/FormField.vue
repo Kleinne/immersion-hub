@@ -3,6 +3,8 @@ import { useVModel, useVModelProps } from '../features/useVModel.js';
 
 import FormTextField from './FormTextField.vue';
 import FormBookDateField from './FormBookDateField.vue';
+import FormTextareaField from './FormTextareaField.vue';
+import FormSelectField from './FormSelectField.vue';
 
 const emit = defineEmits(['update:modelValue']);
 
@@ -19,6 +21,8 @@ const errors = inject('submitBookFormErrors');
 const COMPONENTS = {
   FormTextField,
   FormBookDateField,
+  FormTextareaField,
+  FormSelectField,
 };
 
 const component = computed(

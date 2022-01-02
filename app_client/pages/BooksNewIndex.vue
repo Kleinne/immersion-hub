@@ -29,10 +29,11 @@ const { form, schema, title, subtitle, onSubmit } = useSubmitBookForm();
       <FormField v-model="form.title_en" :field="schema.title_en" />
       <FormField v-model="form.title_romaji" :field="schema.title_romaji" />
       <FormField v-model="form.aliases" :field="schema.aliases" />
+      <FormField v-model="form.author" :field="schema.author" />
       <FormField small v-model="form.volume" :field="schema.volume" />
       <FormField small v-model="form.pages" :field="schema.pages" />
+      <FormField v-model="form.format" :field="schema.format" />
       <FormField v-model="form.isbn" :field="schema.isbn" />
-      <FormField v-model="form.author" :field="schema.author" />
       <FormField v-model="form.published" :field="schema.published" />
       <FormField v-model="form.publisher" :field="schema.publisher" />
     </BaseForm>

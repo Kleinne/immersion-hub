@@ -21,15 +21,22 @@ export const useSubmitBookForm = () => {
     { name: 'December', value: 12 },
   ];
 
+  const formatOptions = [
+    { name: 'Paperback', value: 'paperback' },
+    { name: 'Audiobook', value: 'audiobook' },
+    { name: 'eBook', value: 'ebook' },
+  ];
+
   const form = useForm({
     title: null,
     title_en: null,
     title_romaji: null,
-    aliases: [],
+    aliases: null,
     pages: null,
     author: [],
     publisher: null,
     isbn: null,
+    format: formatOptions[0],
     published: {
       year: null,
       month: months[0],
@@ -61,7 +68,10 @@ export const useSubmitBookForm = () => {
       name: 'aliases',
       label: 'Aliases',
       rules: 'max:512',
+      rows: 3,
       component: 'FormTextareaField',
+      tooltip:
+        'Aliases, abbreviations or whatever floats the Internet goes here. Enter one per line.',
     },
     pages: {
       name: 'pages',
@@ -86,6 +96,14 @@ export const useSubmitBookForm = () => {
       name: 'publisher',
       label: 'Publisher',
       rules: 'min:2|max:255',
+    },
+    format: {
+      name: 'format',
+      label: 'Format',
+      rules: 'required',
+      required: true,
+      options: formatOptions,
+      component: 'FormSelectField',
     },
     published: {
       name: 'published',

@@ -36,6 +36,7 @@ const { form, schema, title, subtitle, onSubmit } = useSubmitBookForm();
       <FormField v-model="form.isbn" :field="schema.isbn" />
       <FormField v-model="form.published" :field="schema.published" />
       <FormField v-model="form.publisher" :field="schema.publisher" />
+      <FormField v-model="form.description" :field="schema.description" />
     </BaseForm>
   </BaseCard>
 </template>

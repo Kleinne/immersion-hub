@@ -47,6 +47,7 @@ const { inputValue } = useVModel(props, emit);
           :id="field.name"
           :rows="field.rows"
           :name="field.name"
+          :maxlength="field.maxlength"
           :placeholder="field.placeholder"
           :disabled="disabled"
         />

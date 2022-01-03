@@ -49,6 +49,7 @@ if (props.focus) {
     >
       <span class="text-sm min-w-[150px] pt-0.5">
         {{ field.label }}
+        <span v-if="field.required" class="text-red-500">*</span>
       </span>
       <div class="w-full">
         <input

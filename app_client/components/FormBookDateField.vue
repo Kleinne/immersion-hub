@@ -37,6 +37,7 @@ const { inputValue } = useVModel(props, emit);
         id="month"
         name="month"
       >
+        <option value="" selected disabled>-</option>
         <option v-for="month in field.months" :value="month" :key="month.name">
           {{ month.name }}
         </option>

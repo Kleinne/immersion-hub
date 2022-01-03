@@ -1,6 +1,4 @@
-import { useForm } from '@inertiajs/inertia-vue3';
-
-export const useSubmitBookForm = () => {
+export const useSubmitBookForm = (props) => {
   const title = 'Add a New Book To the Database';
 
   const subtitle = `Please make sure to check if the book doesn't already exist.
@@ -21,53 +19,27 @@ export const useSubmitBookForm = () => {
     { name: 'December', value: 12 },
   ];
 
-  const formatOptions = [
-    { name: 'Paperback', value: 'paperback' },
-    { name: 'Audiobook', value: 'audiobook' },
-    { name: 'eBook', value: 'ebook' },
-  ];
-
-  const form = useForm({
-    title: null,
-    title_en: null,
-    title_romaji: null,
-    aliases: null,
-    pages: null,
-    author: [],
-    publisher: null,
-    isbn: null,
-    format: formatOptions[0],
-    published: {
-      year: null,
-      month: months[0],
-      day: null,
-    },
-  });
-
   // TODO move english title to aliases
   const schema = computed(() => ({
     title: {
       name: 'title',
       label: 'Original title',
-      rules: 'required|max:255',
       required: true,
     },
     title_en: {
       name: 'title_en',
       label: 'English title',
-      rules: 'max:255',
       tooltip:
         'If the book has an official translation, please enter its title here.',
     },
     title_romaji: {
       name: 'title_romaji',
       label: 'Title in romaji',
-      rules: 'max:255',
     },
     aliases: {
       name: 'aliases',
       label: 'Aliases',
-      rules: 'max:512',
+      maxlength: 512,
       rows: 3,
       component: 'FormTextareaField',
       tooltip:
@@ -76,33 +48,29 @@ export const useSubmitBookForm = () => {
     pages: {
       name: 'pages',
       label: 'Pages',
-      rules: 'max:255',
       type: 'number',
+      required: true,
     },
     isbn: {
       name: 'isbn',
       label: 'ISBN',
-      rules: 'max:255',
       type: 'number',
     },
     author: {
       name: 'author',
       label: 'Author',
-      rules: 'required|min:2|max:255',
       component: 'FormInputDynamic',
       required: true,
     },
     publisher: {
       name: 'publisher',
       label: 'Publisher',
-      rules: 'min:2|max:255',
     },
     format: {
       name: 'format',
       label: 'Format',
-      rules: 'required',
       required: true,
-      options: formatOptions,
+      options: props.formatOptions,
       component: 'FormSelectField',
     },
     published: {
@@ -114,20 +82,20 @@ export const useSubmitBookForm = () => {
     volume: {
       name: 'volume',
       label: 'Volume',
-      rules: 'max:255',
       type: 'number',
     },
+    description: {
+      name: 'description',
+      label: 'Description',
+      maxlength: 2000,
+      component: 'FormTextareaField',
+      rows: 5,
+    },
   }));
-
-  const onSubmit = () => {
-    form.post('new');
-  };
 
   return {
     title,
     subtitle,
-    form,
     schema,
-    onSubmit,
   };
 };

@@ -1,4 +1,5 @@
 <script setup name="BooksNewIndex">
+import { useForm } from '@inertiajs/inertia-vue3';
 import { useSubmitBookForm } from '../features/useSubmitBookForm.js';
 
 import FormField from '../components/FormField.vue';
@@ -10,6 +11,10 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
+  formatOptions: {
+    type: Object,
+    default: () => ({}),
+  },
 });
 
 provide(
@@ -17,7 +22,29 @@ provide(
   computed(() => props.errors),
 );
 
-const { form, schema, title, subtitle, onSubmit } = useSubmitBookForm();
+const form = useForm({
+  title: null,
+  title_en: null,
+  title_romaji: null,
+  aliases: null,
+  pages: null,
+  author: [],
+  publisher: null,
+  isbn: null,
+  description: null,
+  format: props.formatOptions[0]?.value,
+  published: {
+    year: null,
+    month: null,
+    day: null,
+  },
+});
+
+const onSubmit = () => {
+  form.post('new');
+};
+
+const { schema, title, subtitle } = useSubmitBookForm(props);
 </script>
 
 <template>

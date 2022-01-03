@@ -1,6 +1,7 @@
 <script setup name="BooksNewIndex">
 import { useForm } from '@inertiajs/inertia-vue3';
 import { useSubmitBookForm } from '../features/useSubmitBookForm.js';
+import { removeTimezoneOffset } from '../features/useDateUtils.js';
 
 import FormField from '../components/FormField.vue';
 import BaseCard from '../components/BaseCard.vue';
@@ -41,7 +42,20 @@ const form = useForm({
 });
 
 const onSubmit = () => {
-  form.post('new');
+  form
+    .transform((data) => ({
+      ...data,
+      published: removeTimezoneOffset(
+        new Date(
+          form.published.year,
+          form.published.month?.value - 1,
+          form.published.day,
+        ),
+      ),
+    }))
+    .post('new', {
+      remember: true,
+    });
 };
 
 const { schema, title, subtitle } = useSubmitBookForm(props);

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\AddBookRequest;
 
 class BooksSubmitController extends Controller
 {
@@ -20,16 +20,9 @@ class BooksSubmitController extends Controller
         ]);
     }
 
-    public function create(Request $request)
+    public function create(AddBookRequest $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'author' => 'required',
-            'published_year' => 'required|numeric',
-            'cover' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'pages' => 'required|min:1|max:4',
-            'format' => 'required',
-        ]);
+        $validated = $request->validated();
 
         return redirect('/home');
     }

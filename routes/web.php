@@ -48,8 +48,11 @@ Order:
 7. can immediately create a new series and add the book to it
 8. submit the form
 
+TODO add a different addition of a book (audiobook, hardcover, etc.)
 TODO related series, but likely for series creation
 TODO series creation
 TODO type of the item (light novel, novel, audiobook, etc.)
 TODO type (main series, side story, etc.)
+TODO genre
+TODO cover
 */

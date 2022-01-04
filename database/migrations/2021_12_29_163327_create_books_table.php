@@ -18,6 +18,7 @@ class CreateBooksTable extends Migration
             $table->string('title');
             $table->string('title-en')->nullable();
             $table->string('title-romaji')->nullable();
+            $table->text('aliases')->nullable();
             $table->text('description')->nullable();
             $table->integer('pages')->nullable();
             $table->integer('volume')->nullable();

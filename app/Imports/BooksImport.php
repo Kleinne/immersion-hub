@@ -36,6 +36,8 @@ class BooksImport implements ToCollection
                 'pages' => $row[5],
                 'isbn' => $row[12],
                 'cover' => $row[13],
+                'description' => $row[15],
+                'aliases' => $row[16],
             ]);
         }
     }

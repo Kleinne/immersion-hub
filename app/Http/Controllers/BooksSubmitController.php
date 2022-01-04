@@ -23,6 +23,7 @@ class BooksSubmitController extends Controller
     public function create(AddBookRequest $request)
     {
         $validated = $request->validated();
+        ddd('submission is WIP');
 
         return redirect('/home');
     }

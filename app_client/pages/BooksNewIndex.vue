@@ -13,8 +13,8 @@ const props = defineProps({
     default: () => ({}),
   },
   formatOptions: {
-    type: Object,
-    default: () => ({}),
+    type: Array,
+    default: () => [],
   },
 });
 

@@ -6,7 +6,7 @@ import Footer from '../components/Footer.vue';
 <template>
   <div class="w-full h-screen overflow-y-auto">
     <NavBar />
-    <main class="px-5 pt-24 md:px-40 xl:px-80">
+    <main class="px-5 pt-24 md:px-40">
       <div class="max-w-4xl mx-auto">
         <slot />
       </div>

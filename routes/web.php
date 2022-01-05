@@ -19,10 +19,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', fn () => redirect()->route('app.home'));
 Route::get('/home', [HomeController::class, 'index'])->name('app.home');
 
-Route::get('/books/new', [BooksSubmitController::class, 'index'])->name('books.new');
-Route::post('/books/new', [BooksSubmitController::class, 'create'])->name('books.new');
+Route::prefix('books')->group(function () {
+    Route::get('/new', [BooksSubmitController::class, 'index'])->name('books.new');
+    Route::post('/new', [BooksSubmitController::class, 'create'])->name('books.new');
 
-Route::get('/books/{book}', [BooksController::class, 'show'])->whereNumber('book')->name('books.show');
+    Route::get('/{book}', [BooksController::class, 'show'])->whereNumber('book')->name('books.show');
+});
+
 
 /* book submitting
 Fields:
@@ -55,4 +58,5 @@ TODO type of the item (light novel, novel, audiobook, etc.)
 TODO type (main series, side story, etc.)
 TODO genre
 TODO cover
+TODO potentially generate unique book id for urls
 */

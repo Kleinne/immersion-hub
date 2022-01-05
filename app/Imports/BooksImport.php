@@ -29,9 +29,9 @@ class BooksImport implements ToCollection
 
             Book::create([
                 'title' => $row[1],
-                'title-en' => $row[2],
-                'title-romaji' => $row[4],
-                'publication_date' => $date,
+                'title_en' => $row[2],
+                'title_romaji' => $row[4],
+                'published_at' => $date,
                 'volume' => $row[0],
                 'pages' => $row[5],
                 'isbn' => $row[12],

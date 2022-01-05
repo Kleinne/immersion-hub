@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Book;
 
 class BooksController extends Controller
 {
-    public function show()
+    public function show(Book $book)
     {
-        return 'BooksController.show';
+        ddd($book->title);
+        return inertia('BooksShow');
     }
 }

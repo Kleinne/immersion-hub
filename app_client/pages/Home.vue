@@ -1,4 +1,6 @@
 <script setup name="Home">
+import HomeLatestBooks from '../components/HomeLatestBooks.vue';
+
 defineProps({
   books: {
     type: Array,
@@ -11,11 +13,6 @@ defineProps({
   <InertiaHead title="Home" />
 
   <div>
-    hello, {{ $page.props.auth.user.name }}
-
-    <ul>
-      <li v-for="book in books" :key="book.id" v-text="book.title"></li>
-    </ul>
-    <slot />
+    <HomeLatestBooks :books="books" />
   </div>
 </template>

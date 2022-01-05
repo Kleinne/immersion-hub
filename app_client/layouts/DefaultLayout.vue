@@ -1,14 +1,16 @@
 <script setup name="DefaultLayout">
 import NavBar from '../components/NavBar.vue';
+import Footer from '../components/Footer.vue';
 </script>
 
 <template>
-  <div>
+  <div class="w-full h-screen overflow-y-auto">
     <NavBar />
-    <main class="w-full h-screen pt-24 overflow-y-auto px-80">
+    <main class="pt-24 px-80">
       <div class="max-w-4xl mx-auto">
         <slot />
       </div>
     </main>
+    <Footer class="mt-40" />
   </div>
 </template>

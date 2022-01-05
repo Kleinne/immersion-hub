@@ -2,7 +2,7 @@
 
 <template>
   <nav
-    class="fixed inset-x-0 top-0 flex items-center w-full space-x-10 bg-white border-b-2 h-14 border-jet-500"
+    class="fixed inset-x-0 top-0 z-50 flex items-center w-full space-x-10 bg-white border-b-2 h-14 border-jet-500"
   >
     <InertiaLink :href="route('app.home')" class="mr-32 ml-80">
       immersion hub

@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 body {
-  font-family: 'Open-Sans', sans-serif;
+  font-family: 'UD Digi Kyokasho N-R', sans-serif;
+  /* font-family: 'Open-Sans', sans-serif; */
   /* font-family: Lato; */
   font-weight: 400;
   -webkit-font-smoothing: antialiased;

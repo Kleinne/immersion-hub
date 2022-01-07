@@ -18,13 +18,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [LoginController::class, 'create'])->name('app.login');
+    Route::post('/login', [LoginController::class, 'store'])->name('app.login');
+    Route::post('/logout', [LoginController::class, 'destroy'])->name('app.logout');
 
-Route::get('/login', [LoginController::class, 'create'])->name('app.login')->middleware('guest');
-Route::post('/login', [LoginController::class, 'store'])->name('app.login')->middleware('guest');
-Route::post('/logout', [LoginController::class, 'destroy'])->name('app.logout')->middleware('guest');
+    Route::get('/register', [RegisterController::class, 'create'])->name('app.register');
+    Route::post('/register', [RegisterController::class, 'store'])->name('app.register');
+});
 
-Route::get('/register', [RegisterController::class, 'create'])->name('app.register')->middleware('guest');
-Route::post('/register', [RegisterController::class, 'store'])->name('app.register')->middleware('guest');
 
 
 Route::get('/', fn () => redirect()->route('app.home'));

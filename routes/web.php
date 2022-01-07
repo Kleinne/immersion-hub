@@ -18,26 +18,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Session
 Route::middleware('guest')->group(function () {
-    Route::get('/login', [LoginController::class, 'create'])->name('app.login');
-    Route::post('/login', [LoginController::class, 'store'])->name('app.login');
-    Route::post('/logout', [LoginController::class, 'destroy'])->name('app.logout');
+    Route::get('/login', [LoginController::class, 'create'])->name('guest.login');
+    Route::post('/login', [LoginController::class, 'store'])->name('guest.login');
+    Route::post('/logout', [LoginController::class, 'destroy'])->name('guest.logout');
 
-    Route::get('/register', [RegisterController::class, 'create'])->name('app.register');
-    Route::post('/register', [RegisterController::class, 'store'])->name('app.register');
+    Route::get('/register', [RegisterController::class, 'create'])->name('guest.register');
+    Route::post('/register', [RegisterController::class, 'store'])->name('guest.register');
 });
 
 
-
+// Home
 Route::get('/', fn () => redirect()->route('app.home'));
 Route::get('/home', [HomeController::class, 'index'])->name('app.home');
 
-Route::prefix('books')->group(function () {
-    Route::get('/new', [BooksSubmitController::class, 'index'])->name('app.books.new')->middleware('auth');
-    Route::post('/new', [BooksSubmitController::class, 'create'])->name('app.books.new')->middleware('auth');
 
+// Books
+Route::prefix('books')->group(function () {
     Route::get('/{book}', [BooksController::class, 'show'])->whereNumber('book')->name('app.books.show');
+
+    Route::middleware('auth')->group(function () {
+        Route::post('/log', [BooksController::class, 'store'])->name('auth.books.store');
+
+        Route::get('/new', [BooksSubmitController::class, 'index'])->name('auth.books.new');
+        Route::post('/new', [BooksSubmitController::class, 'create'])->name('auth.books.new');
+    });
 });
+
+
+
 
 
 /* book submitting

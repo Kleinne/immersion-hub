@@ -10,6 +10,7 @@ class BooksSubmitController extends Controller
     {
         $formatOptions = [
             ['value' => null, 'name' => 'Select a format'],
+            ['value' => 'light_novel', 'name' => 'Light Novel'],
             ['value' => 'novel', 'name' => 'Novel'],
             ['value' => 'audiobook', 'name' => 'Audiobook'],
             ['value' => 'other', 'name' => 'Other'],

@@ -1,4 +1,11 @@
+import { useForm } from '@inertiajs/inertia-vue3';
+
 export const useSubmitBookForm = (props) => {
+  provide(
+    'formErrors',
+    computed(() => props.errors),
+  );
+
   const title = 'Add a New Book To the Database';
 
   const subtitle = `Please make sure to check if the book doesn't already exist.
@@ -18,6 +25,24 @@ export const useSubmitBookForm = (props) => {
     { name: 'November', value: 11 },
     { name: 'December', value: 12 },
   ];
+
+  const form = useForm({
+    title: null,
+    title_en: null,
+    title_romaji: null,
+    aliases: null,
+    pages: null,
+    author: [],
+    publisher: null,
+    isbn: null,
+    description: null,
+    format: props.formatOptions[0]?.value,
+    published: {
+      year: null,
+      month: null,
+      day: null,
+    },
+  });
 
   // TODO move english title to aliases
   const schema = computed(() => ({
@@ -93,9 +118,5 @@ export const useSubmitBookForm = (props) => {
     },
   }));
 
-  return {
-    title,
-    subtitle,
-    schema,
-  };
+  return { form, title, subtitle, schema };
 };

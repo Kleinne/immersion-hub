@@ -11,7 +11,7 @@ defineProps({
 </script>
 
 <template>
-  <form @submit.prevent="emit('submit')" class="max-w-xl">
+  <form @submit.prevent="emit('submit')">
     <slot />
 
     <div class="flex justify-end">

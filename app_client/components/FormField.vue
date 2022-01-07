@@ -16,7 +16,7 @@ const props = defineProps({
   },
 });
 
-const errors = inject('submitBookFormErrors');
+const errors = inject('formErrors');
 
 const COMPONENTS = {
   FormTextField,

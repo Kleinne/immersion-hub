@@ -1,5 +1,4 @@
 <script setup name="BooksNewIndex">
-import { useForm } from '@inertiajs/inertia-vue3';
 import { useSubmitBookForm } from '../features/useSubmitBookForm.js';
 import { removeTimezoneOffset } from '../features/useDateUtils.js';
 
@@ -18,28 +17,7 @@ const props = defineProps({
   },
 });
 
-provide(
-  'submitBookFormErrors',
-  computed(() => props.errors),
-);
-
-const form = useForm({
-  title: null,
-  title_en: null,
-  title_romaji: null,
-  aliases: null,
-  pages: null,
-  author: [],
-  publisher: null,
-  isbn: null,
-  description: null,
-  format: props.formatOptions[0]?.value,
-  published: {
-    year: null,
-    month: null,
-    day: null,
-  },
-});
+const { form, schema, title, subtitle } = useSubmitBookForm(props);
 
 const onSubmit = () => {
   form
@@ -57,15 +35,13 @@ const onSubmit = () => {
       remember: true,
     });
 };
-
-const { schema, title, subtitle } = useSubmitBookForm(props);
 </script>
 
 <template>
   <InertiaHead title="Submit a Book" />
 
   <BaseCard :title="title" :subtitle="subtitle">
-    <BaseForm class="space-y-4" @submit="onSubmit">
+    <BaseForm class="max-w-xl mx-auto space-y-4" @submit="onSubmit">
       <FormField focus v-model="form.title" :field="schema.title" />
       <FormField v-model="form.title_en" :field="schema.title_en" />
       <FormField v-model="form.title_romaji" :field="schema.title_romaji" />

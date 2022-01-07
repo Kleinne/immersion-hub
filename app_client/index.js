@@ -12,7 +12,7 @@ import BaseIcon from './components/BaseIcon.vue';
 createInertiaApp({
   resolve: async (name) => {
     const page = (await import(`./pages/${name}.vue`)).default;
-    page.layout ??= DefaultLayout;
+    page.layout = page.layout === undefined ? DefaultLayout : page.layout;
     return page;
   },
   setup({ el, App, props, plugin }) {
@@ -24,7 +24,7 @@ createInertiaApp({
       .component('BaseIcon', BaseIcon)
       .mount(el);
   },
-  title: (title) => (title ? `Immersion Hub | ${title}` : 'Immersion Hub'),
+  title: (title) => (title ? `Book Asylum | ${title}` : 'Book Asylum'),
 });
 
 InertiaProgress.init({

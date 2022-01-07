@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Author;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,6 +23,12 @@ class DatabaseSeeder extends Seeder
 
         Author::create([
             'name' => 'Asato Asato',
+        ]);
+
+        User::create([
+            'username' => 'Kleine',
+            'email' => 'kleine@test.com',
+            'password' => 'Password1',
         ]);
     }
 }

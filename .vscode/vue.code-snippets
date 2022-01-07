@@ -22,5 +22,10 @@
       "<template>$0</template>"
     ],
     "description": "vue component template"
+  },
+  "InertiaHead": {
+    "prefix": "InertiaHead",
+    "body": ["<InertiaHead title=\"${0}\" />"],
+    "description": "InertiaHead component"
   }
 }

@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BooksSubmitController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,14 +18,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/login', [LoginController::class, 'create'])->name('app.login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'store'])->name('app.login')->middleware('guest');
+Route::post('/logout', [LoginController::class, 'destroy'])->name('app.logout')->middleware('guest');
+
+Route::get('/register', [RegisterController::class, 'create'])->name('app.register')->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store'])->name('app.register')->middleware('guest');
+
+
 Route::get('/', fn () => redirect()->route('app.home'));
 Route::get('/home', [HomeController::class, 'index'])->name('app.home');
 
 Route::prefix('books')->group(function () {
-    Route::get('/new', [BooksSubmitController::class, 'index'])->name('books.new');
-    Route::post('/new', [BooksSubmitController::class, 'create'])->name('books.new');
+    Route::get('/new', [BooksSubmitController::class, 'index'])->name('app.books.new')->middleware('auth');
+    Route::post('/new', [BooksSubmitController::class, 'create'])->name('app.books.new')->middleware('auth');
 
-    Route::get('/{book}', [BooksController::class, 'show'])->whereNumber('book')->name('books.show');
+    Route::get('/{book}', [BooksController::class, 'show'])->whereNumber('book')->name('app.books.show');
 });
 
 
@@ -40,6 +51,7 @@ Fields:
 - pages
 - original language (?)
 - volume
+- novel / light novel / cd / manga / audiobook
 
 Order:
 1. user enters the title

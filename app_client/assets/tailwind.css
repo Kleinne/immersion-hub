@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  font-family: 'Zen Kurenaido', 'Open-Sans', sans-serif;
+  font-family: 'Zen Kurenaido', 'UD Digi Kyokasho N-R', 'Open-Sans', sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

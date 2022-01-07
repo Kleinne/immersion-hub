@@ -39,7 +39,7 @@ Route::prefix('books')->group(function () {
     Route::get('/{book}', [BooksController::class, 'show'])->whereNumber('book')->name('app.books.show');
 
     Route::middleware('auth')->group(function () {
-        Route::post('/log', [BooksController::class, 'store'])->name('auth.books.store');
+        Route::post('{book}/log', [BooksController::class, 'store'])->name('auth.books.store');
 
         Route::get('/new', [BooksSubmitController::class, 'index'])->name('auth.books.new');
         Route::post('/new', [BooksSubmitController::class, 'create'])->name('auth.books.new');

@@ -14,12 +14,32 @@
     >
       Home
     </InertiaLink>
-    <InertiaLink
-      class="font-bold hover:text-ired-500"
-      :class="{ 'text-ired-500': $page.url.startsWith('/books/new') }"
-      :href="route('books.new')"
-    >
-      Add a Book
-    </InertiaLink>
+
+    <template v-if="$page.props.auth">
+      <InertiaLink
+        class="font-bold hover:text-ired-500"
+        :class="{ 'text-ired-500': $page.url.startsWith('/books/new') }"
+        :href="route('app.books.new')"
+      >
+        Add a Book
+      </InertiaLink>
+    </template>
+
+    <template v-else>
+      <InertiaLink
+        class="font-bold hover:text-ired-500"
+        :class="{ 'text-ired-500': $page.url.startsWith('/login') }"
+        :href="route('app.login')"
+      >
+        Login
+      </InertiaLink>
+      <InertiaLink
+        class="font-bold hover:text-ired-500"
+        :class="{ 'text-ired-500': $page.url.startsWith('/register') }"
+        :href="route('app.register')"
+      >
+        Register
+      </InertiaLink>
+    </template>
   </nav>
 </template>

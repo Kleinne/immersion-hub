@@ -10,6 +10,7 @@ class BooksController extends Controller
     {
         return inertia('BooksShow', [
             'book' => [
+                'id' => $book->id,
                 'title' => $book->title,
                 'title_en' => $book->title_en,
                 'title_romaji' => $book->title_romaji,
@@ -21,6 +22,20 @@ class BooksController extends Controller
                 'isbn' => $book->isbn,
                 'description' => $book->description,
             ]
+        ]);
+    }
+
+    public function store(Book $book)
+    {
+        $STATUSES = ['reading', 'completed', 'paused', 'dropped', 'planned'];
+        $action = request()->data['action'];
+
+        if (!in_array($action, $STATUSES)) {
+            abort(400, 'Invalid action');
+        }
+
+        auth()->user()->books()->sync([
+            $book->id => ['status' => $action]
         ]);
     }
 }

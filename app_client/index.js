@@ -24,7 +24,7 @@ createInertiaApp({
       .component('BaseIcon', BaseIcon)
       .mount(el);
   },
-  title: (title) => (title ? `Book Asylum | ${title}` : 'Book Asylum'),
+  title: (title) => (title ? `Book Cafe | ${title}` : 'Book Cafe'),
 });
 
 InertiaProgress.init({

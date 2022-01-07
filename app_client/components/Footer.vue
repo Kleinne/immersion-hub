@@ -20,16 +20,15 @@ const links = [
 </script>
 
 <template>
-  <footer>
-    <div class="flex p-5 mx-auto text-sm text-gray-500 max-w-max">
-      <div class="space-x-6">
-        <InertiaLink
-          v-for="link in links"
-          :key="link.title"
-          :href="link.url"
-          v-text="link.title"
-        />
-      </div>
+  <footer class="flex items-center justify-center">
+    <div class="relative bottom-0 flex p-5 text-sm text-gray-500 max-w-max">
+      <InertiaLink
+        class="px-3"
+        v-for="link in links"
+        :key="link.title"
+        :href="link.url"
+        v-text="link.title"
+      />
     </div>
   </footer>
 </template>

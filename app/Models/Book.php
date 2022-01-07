@@ -11,8 +11,8 @@ class Book extends Model
 
     protected $fillable = [
         'title',
-        'title-en',
-        'title-romaji',
+        'title_en',
+        'title_romaji',
         'description',
         'pages',
         'volume',
@@ -24,5 +24,10 @@ class Book extends Model
     public function author()
     {
         return $this->belongsToMany(Author::class);
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
     }
 }

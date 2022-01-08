@@ -26,6 +26,8 @@ class CreateBookUserTable extends Migration
                 ->onDelete('cascade');
 
             $table->string('status');
+            $table->timestamp('started_at')->nullable();
+            $table->timestamp('finished_at')->nullable();
             $table->timestamps();
         });
     }

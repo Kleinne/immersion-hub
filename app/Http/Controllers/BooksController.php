@@ -8,6 +8,10 @@ class BooksController extends Controller
 {
     public function show(Book $book)
     {
+        // TODO figure out how to improve this code
+        $isAuth = auth()->check();
+        $hasBook = $isAuth ? auth()->user()->books->find($book) : false;
+
         return inertia('BooksShow', [
             'book' => [
                 'id' => $book->id,
@@ -21,13 +25,14 @@ class BooksController extends Controller
                 'published_at' => $book->published_at,
                 'isbn' => $book->isbn,
                 'description' => $book->description,
-            ]
+            ],
+            'bookStatus' => $hasBook ? $hasBook->pivot->status : null,
         ]);
     }
 
     public function store(Book $book)
     {
-        $STATUSES = ['reading', 'completed', 'paused', 'dropped', 'planned'];
+        $STATUSES = ['reading', 'completed', 'planned'];
         $action = request()->data['action'];
 
         if (!in_array($action, $STATUSES)) {

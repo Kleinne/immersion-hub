@@ -9,7 +9,7 @@ defineProps({
 <template>
   <InertiaLink
     :href="href"
-    class="transition-all text-ired-500 hover:text-ired-500/70"
+    class="transition-all text-ired-500 hover:text-ired-500/50"
   >
     <slot />
   </InertiaLink>

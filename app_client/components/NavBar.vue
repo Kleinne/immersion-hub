@@ -1,45 +1,73 @@
-<script setup name="NavBar"></script>
+<script setup name="NavBar">
+import NavBarLinkGroup from './NavBarLinkGroup.vue';
+
+defineProps({
+  user: {
+    type: Object,
+    default: null,
+  },
+});
+
+const loginLinks = [
+  {
+    name: 'Login',
+    url: '/login',
+    route: 'guest.login',
+  },
+  {
+    name: 'Register',
+    url: '/register',
+    route: 'guest.register',
+  },
+];
+
+const publicLinks = [
+  {
+    name: 'immersion hub',
+    route: 'app.home',
+  },
+  {
+    name: 'Home',
+    url: '/home',
+    route: 'app.home',
+  },
+];
+
+const authRoutes = [
+  {
+    name: 'Add a Book',
+    url: '/books/new',
+    route: 'auth.books.new',
+  },
+];
+</script>
 
 <template>
   <nav
-    class="fixed inset-x-0 top-0 z-50 flex items-center w-full space-x-10 bg-white border-b-2 h-14 border-jet-500"
+    class="fixed inset-x-0 top-0 z-50 w-full h-12 bg-white border-b-2 border-jet-500"
   >
-    <InertiaLink :href="route('app.home')" class="mr-32 ml-80">
-      immersion hub
-    </InertiaLink>
-    <InertiaLink
-      class="font-bold hover:text-ired-500"
-      :class="{ 'text-ired-500': $page.url.startsWith('/home') }"
-      :href="route('app.home')"
+    <div
+      class="flex items-center justify-between h-full max-w-4xl mx-auto desktop:max-w-7xl"
     >
-      Home
-    </InertiaLink>
+      <NavBarLinkGroup :items="publicLinks" />
 
-    <template v-if="$page.props.auth">
-      <InertiaLink
-        class="font-bold hover:text-ired-500"
-        :class="{ 'text-ired-500': $page.url.startsWith('/books/new') }"
-        :href="route('auth.books.new')"
-      >
-        Add a Book
-      </InertiaLink>
-    </template>
+      <template v-if="!$page.props.auth">
+        <NavBarLinkGroup :items="loginLinks" />
+      </template>
 
-    <template v-else>
-      <InertiaLink
-        class="font-bold hover:text-ired-500"
-        :class="{ 'text-ired-500': $page.url.startsWith('/login') }"
-        :href="route('guest.login')"
-      >
-        Login
-      </InertiaLink>
-      <InertiaLink
-        class="font-bold hover:text-ired-500"
-        :class="{ 'text-ired-500': $page.url.startsWith('/register') }"
-        :href="route('guest.register')"
-      >
-        Register
-      </InertiaLink>
-    </template>
+      <template v-else>
+        <NavBarLinkGroup :items="authRoutes">
+          <InertiaLink
+            class="font-bold hover:text-ired-500"
+            :href="`users/${user.username}`"
+            :class="{
+              'text-ired-500': $page.url.startsWith(`users/${user.username}`),
+            }"
+          >
+            Profile
+          </InertiaLink>
+        </NavBarLinkGroup>
+      </template>
+    </div>
   </nav>
 </template>

@@ -39,7 +39,7 @@ const tag = computed(() => {
   <component
     :is="tag"
     :disabled="disabled || loading"
-    class="px-3 flex items-center justify-center outline-none py-2 text-sm tracking-wider rounded-lg shadow-idle bg-ired-500 text-white | hover:bg-ired-500/70 hover:shadow-hover | focus:bg-ired-500/80"
+    class="px-3 flex items-center justify-center outline-none transition-all py-2 text-sm tracking-wider rounded-lg shadow-idle bg-ired-500 text-white | hover:bg-ired-500/70 hover:shadow-hover | focus:bg-ired-500/80"
   >
     <BaseIcon
       v-if="loading"

@@ -37,6 +37,9 @@ module.exports = {
         idle: '0px 0px 10px rgba(0, 0, 0, 0.15)',
         hover: '0px 0px 10px rgba(0, 0, 0, 0.3)',
       },
+      screens: {
+        desktop: '1920px',
+      },
     },
   },
 };

@@ -21,21 +21,49 @@ const onSubmit = (action) => {
     data: { action },
   });
 };
+
+const actions = [
+  {
+    name: 'Completed',
+    action: 'completed',
+    icon: 'book-plus-multiple',
+  },
+  {
+    name: 'Reading',
+    action: 'reading',
+    icon: 'book-open-page',
+  },
+  {
+    name: 'Plan To Read',
+    action: 'planned',
+    icon: 'bookshelf',
+  },
+];
 </script>
 
 <template>
   <div class="flex space-x-5">
     <InertiaHead :title="book.title" />
-    <div class="w-[300px] shrink-0">
+    <div class="w-[250px] desktop:w-[300px] shrink-0">
       <img
         v-if="book.cover"
         :src="book.cover"
         class="object-contain border border-black rounded"
-        width="300"
-        height="auto"
+        style="width: 100%; height: auto"
         alt="cover"
       />
-      <BaseButton class="w-10/12 mx-auto mt-5">Add to a List</BaseButton>
+
+      <div v-if="$page.props.auth" class="flex flex-col mt-5 space-y-2">
+        <BaseButton
+          class="w-10/12 mx-auto"
+          v-for="{ action, name, icon } in actions"
+          :key="action"
+          :icon="icon"
+          @click="onSubmit(action)"
+        >
+          {{ name }}
+        </BaseButton>
+      </div>
     </div>
 
     <div class="w-full">

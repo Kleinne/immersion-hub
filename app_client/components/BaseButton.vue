@@ -1,4 +1,6 @@
 <script setup name="BaseButton">
+import BaseIcon from './BaseIcon.vue';
+
 const props = defineProps({
   disabled: {
     type: Boolean,
@@ -14,6 +16,10 @@ const props = defineProps({
   },
   to: {
     type: [String, Object],
+    default: null,
+  },
+  icon: {
+    type: String,
     default: null,
   },
 });
@@ -46,6 +52,9 @@ const tag = computed(() => {
       class="w-5 h-5 text-white animate-spin"
       icon="loading"
     />
-    <slot v-else />
+    <div v-else class="flex items-center justify-center">
+      <BaseIcon v-if="icon" :icon="icon" class="w-5 h-5 mr-2" />
+      <slot />
+    </div>
   </component>
 </template>

@@ -59,9 +59,9 @@ const authRoutes = [
         <NavBarLinkGroup :items="authRoutes">
           <InertiaLink
             class="font-bold hover:text-ired-500"
-            :href="`users/${user.username}`"
+            :href="`/users/${user.username}`"
             :class="{
-              'text-ired-500': $page.url.startsWith(`users/${user.username}`),
+              'text-ired-500': $page.url.startsWith(`/users/${user.username}`),
             }"
           >
             Profile

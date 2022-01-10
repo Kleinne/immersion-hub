@@ -22,6 +22,11 @@ const props = defineProps({
     type: String,
     default: null,
   },
+  type: {
+    type: String,
+    default: 'primary',
+    validator: (value) => ['primary', 'secondary'].includes(value),
+  },
 });
 
 const tag = computed(() => {
@@ -45,7 +50,13 @@ const tag = computed(() => {
   <component
     :is="tag"
     :disabled="disabled || loading"
-    class="px-3 flex items-center justify-center outline-none transition-all py-2 text-sm tracking-wider rounded-lg shadow-idle bg-ired-500 text-white | hover:bg-ired-500/70 hover:shadow-hover | focus:bg-ired-500/80"
+    class="flex items-center justify-center px-3 py-2 text-sm tracking-wider text-white transition-all rounded-lg outline-none whitespace-nowrap shadow-idle hover:shadow-hover"
+    :class="{
+      'bg-ired-500 hover:bg-ired-500/70 focus:bg-ired-500/80':
+        type === 'primary',
+      'bg-primary-500 hover:bg-primary-500/70 focus:bg-primary-500/80':
+        type === 'secondary',
+    }"
   >
     <BaseIcon
       v-if="loading"

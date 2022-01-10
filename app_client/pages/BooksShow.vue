@@ -22,23 +22,26 @@ const onSubmit = (action) => {
   });
 };
 
-const actions = [
+const actions = computed(() => [
   {
     name: 'Completed',
     action: 'completed',
     icon: 'book-plus-multiple',
+    type: props.bookStatus === 'completed' ? 'secondary' : 'primary',
   },
   {
     name: 'Reading',
     action: 'reading',
     icon: 'book-open-page',
+    type: props.bookStatus === 'reading' ? 'secondary' : 'primary',
   },
   {
     name: 'Plan To Read',
     action: 'planned',
     icon: 'bookshelf',
+    type: props.bookStatus === 'planned' ? 'secondary' : 'primary',
   },
-];
+]);
 </script>
 
 <template>
@@ -56,12 +59,13 @@ const actions = [
       <div v-if="$page.props.auth" class="flex flex-col mt-5 space-y-2">
         <BaseButton
           class="w-10/12 mx-auto"
-          v-for="{ action, name, icon } in actions"
-          :key="action"
-          :icon="icon"
-          @click="onSubmit(action)"
+          v-for="action in actions"
+          :key="action.action"
+          :icon="action.icon"
+          :type="action.type"
+          @click="onSubmit(action.action)"
         >
-          {{ name }}
+          {{ action.name }}
         </BaseButton>
       </div>
     </div>

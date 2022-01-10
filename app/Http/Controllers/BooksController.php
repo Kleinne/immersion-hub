@@ -32,15 +32,18 @@ class BooksController extends Controller
 
     public function store(Book $book)
     {
-        $STATUSES = ['reading', 'completed', 'planned'];
+        $STATUSES = ['reading', 'rereading', 'completed', 'planned', 'paused', 'dropped'];
         $action = request()->data['action'];
 
         if (!in_array($action, $STATUSES)) {
             abort(400, 'Invalid action');
         }
 
-        auth()->user()->books()->sync([
-            $book->id => ['status' => $action]
+        auth()->user()->books()->syncWithoutDetaching([
+            $book->id => [
+                'status' => $action,
+                'finished_at' => $action === 'completed' ? now() : null,
+            ]
         ]);
     }
 }

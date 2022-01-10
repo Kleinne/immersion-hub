@@ -51,23 +51,18 @@ const authRoutes = [
     >
       <NavBarLinkGroup :items="publicLinks" />
 
-      <template v-if="!$page.props.auth">
-        <NavBarLinkGroup :items="loginLinks" />
-      </template>
-
-      <template v-else>
-        <NavBarLinkGroup :items="authRoutes">
-          <InertiaLink
-            class="font-bold hover:text-ired-500"
-            :href="`/users/${user.username}`"
-            :class="{
-              'text-ired-500': $page.url.startsWith(`/users/${user.username}`),
-            }"
-          >
-            Profile
-          </InertiaLink>
-        </NavBarLinkGroup>
-      </template>
+      <NavBarLinkGroup v-if="!$page.props.auth" :items="loginLinks" />
+      <NavBarLinkGroup v-else :items="authRoutes">
+        <InertiaLink
+          class="font-bold hover:text-ired-500"
+          :href="`/users/${user.username}`"
+          :class="{
+            'text-ired-500': $page.url.startsWith(`/users/${user.username}`),
+          }"
+        >
+          Profile
+        </InertiaLink>
+      </NavBarLinkGroup>
     </div>
   </nav>
 </template>

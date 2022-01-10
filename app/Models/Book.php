@@ -28,6 +28,6 @@ class Book extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class)->withPivot('status')->withTimestamps();
+        return $this->belongsToMany(User::class)->withPivot('status', 'finished_at')->withTimestamps();
     }
 }

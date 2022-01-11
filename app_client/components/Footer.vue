@@ -21,7 +21,7 @@ const links = [
 
 <template>
   <footer class="flex items-center justify-center">
-    <div class="relative bottom-0 flex p-5 text-sm text-gray-500 max-w-max">
+    <div class="flex p-5 text-sm text-gray-500 max-w-max">
       <InertiaLink
         class="px-3"
         v-for="link in links"

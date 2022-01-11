@@ -4,7 +4,7 @@ import Footer from '../components/Footer.vue';
 </script>
 
 <template>
-  <div class="w-full h-screen overflow-y-auto">
+  <div class="w-full h-screen">
     <NavBar :user="$page.props.auth?.user" />
     <main class="px-5 pt-24 md:px-40">
       <div class="max-w-4xl mx-auto desktop:max-w-7xl">
@@ -12,5 +12,5 @@ import Footer from '../components/Footer.vue';
       </div>
     </main>
   </div>
-  <Footer />
+  <Footer class="mt-20" />
 </template>

@@ -47,6 +47,7 @@ const actions = computed(() => [
 <template>
   <div class="flex space-x-5">
     <InertiaHead :title="book.title" />
+
     <div class="w-[250px] desktop:w-[300px] shrink-0">
       <img
         v-if="book.cover"

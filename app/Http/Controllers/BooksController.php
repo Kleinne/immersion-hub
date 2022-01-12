@@ -39,9 +39,17 @@ class BooksController extends Controller
             abort(400, 'Invalid action');
         }
 
+        $existingBook = auth()->user()->books()->where('book_id', $book->id)->first();
+        $startedAt = $existingBook ? $existingBook->pivot->started_at : now();
+
+        if ($action === 'planned') {
+            $startedAt = null;
+        }
+
         auth()->user()->books()->syncWithoutDetaching([
             $book->id => [
                 'status' => $action,
+                'started_at' => $action === 'reading' ? now() : $startedAt,
                 'finished_at' => $action === 'completed' ? now() : null,
             ]
         ]);

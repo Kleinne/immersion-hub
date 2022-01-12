@@ -18,9 +18,12 @@ createInertiaApp({
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
       .use(plugin)
+      // ziggy
       .mixin({ methods: { route: window.route } })
+      // inertia
       .component('InertiaLink', Link)
       .component('InertiaHead', Head)
+      // components
       .component('BaseIcon', BaseIcon)
       .mount(el);
   },

@@ -34,23 +34,26 @@ class BooksController extends Controller
     {
         $STATUSES = ['reading', 'rereading', 'completed', 'planned', 'paused', 'dropped'];
         $action = request()->data['action'];
+        $completedAt = request()->data['completed_at'] ?? null;
 
         if (!in_array($action, $STATUSES)) {
             abort(400, 'Invalid action');
         }
 
-        $existingBook = auth()->user()->books()->where('book_id', $book->id)->first();
+        $books = auth()->user()->books();
+
+        $existingBook = $books->where('book_id', $book->id)->first();
         $startedAt = $existingBook ? $existingBook->pivot->started_at : now();
 
         if ($action === 'planned') {
             $startedAt = null;
         }
 
-        auth()->user()->books()->syncWithoutDetaching([
+        $books->syncWithoutDetaching([
             $book->id => [
                 'status' => $action,
                 'started_at' => $action === 'reading' ? now() : $startedAt,
-                'finished_at' => $action === 'completed' ? now() : null,
+                'finished_at' => $completedAt ? date('Y-m-d H:m:s', strtotime($completedAt)) : null,
             ]
         ]);
 

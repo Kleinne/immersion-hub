@@ -18,7 +18,7 @@ const onClickOutside = () => {
 };
 
 const onSubmit = () => {
-  emit('submit');
+  emit('submit', completionDate.value);
 };
 </script>
 

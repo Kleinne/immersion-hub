@@ -18,12 +18,13 @@ const props = defineProps({
 });
 
 const showModal = ref(false);
+const completionDate = ref(null);
 
 const onSubmit = (action) => {
   showModal.value = false;
   Inertia.post(
     `${props.book.id}/log`,
-    { data: { action } },
+    { data: { action, completed_at: completionDate.value } },
     { preserveScroll: true },
   );
 };
@@ -34,6 +35,11 @@ const onClickCompleted = () => {
 
 const onClickOutside = () => {
   showModal.value = false;
+};
+
+const onSubmitCompleted = (date) => {
+  completionDate.value = date;
+  onSubmit('completed');
 };
 
 const actions = computed(() => [
@@ -65,7 +71,7 @@ const actions = computed(() => [
     <BookCompletedModal
       v-if="showModal"
       @clickOutside="onClickOutside"
-      @submit="onSubmit('completed')"
+      @submit="onSubmitCompleted"
     />
 
     <div class="w-[250px] desktop:w-[300px] shrink-0">

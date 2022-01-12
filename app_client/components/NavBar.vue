@@ -44,7 +44,7 @@ const authRoutes = [
 
 <template>
   <nav
-    class="fixed inset-x-0 top-0 z-50 w-full h-12 bg-white border-b-2 border-jet-500"
+    class="fixed inset-x-0 top-0 z-30 w-full h-12 bg-white border-b-2 border-jet-500"
   >
     <div
       class="flex items-center justify-between h-full max-w-4xl mx-auto desktop:max-w-7xl"

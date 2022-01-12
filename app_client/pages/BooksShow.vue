@@ -21,10 +21,11 @@ const showModal = ref(false);
 
 const onSubmit = (action) => {
   showModal.value = false;
-  Inertia.post(`${props.book.id}/log`, {
-    data: { action },
-    // preserveScroll: true,
-  });
+  Inertia.post(
+    `${props.book.id}/log`,
+    { data: { action } },
+    { preserveScroll: true },
+  );
 };
 
 const onClickCompleted = () => {

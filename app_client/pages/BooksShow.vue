@@ -4,6 +4,7 @@ import { Inertia } from '@inertiajs/inertia';
 import BaseButton from '../components/BaseButton.vue';
 import BaseCard from '../components/BaseCard.vue';
 import TextLink from '../components/TextLink.vue';
+import BookCompletedModal from '../components/BookCompletedModal.vue';
 
 const props = defineProps({
   book: {
@@ -16,30 +17,42 @@ const props = defineProps({
   },
 });
 
+const showModal = ref(false);
+
 const onSubmit = (action) => {
+  showModal.value = false;
   Inertia.post(`${props.book.id}/log`, {
     data: { action },
+    // preserveScroll: true,
   });
+};
+
+const onClickCompleted = () => {
+  showModal.value = true;
+};
+
+const onClickOutside = () => {
+  showModal.value = false;
 };
 
 const actions = computed(() => [
   {
     name: 'Completed',
-    action: 'completed',
     icon: 'book-plus-multiple',
     type: props.bookStatus === 'completed' ? 'secondary' : 'primary',
+    onClick: () => onClickCompleted(),
   },
   {
     name: 'Reading',
-    action: 'reading',
     icon: 'book-open-page',
     type: props.bookStatus === 'reading' ? 'secondary' : 'primary',
+    onClick: () => onSubmit('reading'),
   },
   {
     name: 'Plan To Read',
-    action: 'planned',
     icon: 'bookshelf',
     type: props.bookStatus === 'planned' ? 'secondary' : 'primary',
+    onClick: () => onSubmit('planned'),
   },
 ]);
 </script>
@@ -47,6 +60,12 @@ const actions = computed(() => [
 <template>
   <div class="flex space-x-5">
     <InertiaHead :title="book.title" />
+
+    <BookCompletedModal
+      v-if="showModal"
+      @clickOutside="onClickOutside"
+      @submit="onSubmit('completed')"
+    />
 
     <div class="w-[250px] desktop:w-[300px] shrink-0">
       <img
@@ -61,10 +80,10 @@ const actions = computed(() => [
         <BaseButton
           class="w-10/12 mx-auto"
           v-for="action in actions"
-          :key="action.action"
+          :key="action.name"
           :icon="action.icon"
           :type="action.type"
-          @click="onSubmit(action.action)"
+          @click="action.onClick"
         >
           {{ action.name }}
         </BaseButton>

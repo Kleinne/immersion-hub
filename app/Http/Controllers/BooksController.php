@@ -45,5 +45,7 @@ class BooksController extends Controller
                 'finished_at' => $action === 'completed' ? now() : null,
             ]
         ]);
+
+        return redirect()->route('app.books.show', [$book->id]);
     }
 }

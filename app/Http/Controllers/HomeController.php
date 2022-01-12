@@ -10,11 +10,11 @@ class HomeController extends Controller
     {
         $latestBooks = Book::latest()
             ->offset(18)
-            ->limit(8)
+            ->limit(20)
             ->get();
 
         $highestRatedBooks = Book::latest()
-            ->limit(8)
+            ->limit(20)
             ->get();
 
         return inertia('Home', [

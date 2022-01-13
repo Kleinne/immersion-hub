@@ -12,7 +12,7 @@ const props = defineProps({
   },
 });
 
-const statsItems = computed(() => [
+const stats = computed(() => [
   {
     label: 'Reading',
     value: props.books?.reading?.length,
@@ -42,7 +42,7 @@ const statsItems = computed(() => [
           <h5 class="mb-2 font-bold">User's data</h5>
           <div
             class="flex items-center justify-between py-2"
-            v-for="{ label, value } in statsItems"
+            v-for="{ label, value } in stats"
             :key="label"
           >
             <p>{{ label }}</p>

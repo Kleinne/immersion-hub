@@ -24,6 +24,7 @@ class BooksImport implements ToCollection
                 return;
             }
 
+            // convert excel date to timestamp
             $UNIX_DATE = ($row[3] - 25569) * 86400;
             $date = gmdate("Y-m-d", $UNIX_DATE);
 

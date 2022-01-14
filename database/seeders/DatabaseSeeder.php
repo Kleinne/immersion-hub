@@ -22,12 +22,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Author::create([
-            'name' => 'Asato Asato',
+            'name' => 'Brandon Sanderson',
         ]);
 
         User::create([
-            'username' => 'Kleine',
-            'email' => 'kleine@test.com',
+            'username' => 'TestUser',
+            'email' => 'test@example.com',
             'password' => 'Password1',
         ]);
     }

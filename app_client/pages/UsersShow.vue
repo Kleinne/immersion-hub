@@ -2,6 +2,7 @@
 import { useBooksLineChart } from '../features/useBooksLineChart.js';
 
 import BaseCard from '../components/BaseCard.vue';
+import BookListItem from '../components/BookListItem.vue';
 
 const props = defineProps({
   user: {
@@ -63,5 +64,35 @@ const { chartOptions } = useBooksLineChart(props.charts.line);
         <EChart :option="chartOptions" />
       </BaseCard>
     </div>
+
+    <BaseCard v-if="books.reading?.length" title="Currently reading books">
+      <div class="flex flex-wrap gap-2">
+        <BookListItem
+          v-for="book in books.reading"
+          :key="book.id"
+          :data="book"
+        />
+      </div>
+    </BaseCard>
+
+    <BaseCard v-if="books.completed?.length" title="Completed books">
+      <div class="flex flex-wrap gap-2">
+        <BookListItem
+          v-for="book in books.completed"
+          :key="book.id"
+          :data="book"
+        />
+      </div>
+    </BaseCard>
+
+    <BaseCard v-if="books.planned?.length" title="Planned to read books">
+      <div class="flex flex-wrap gap-2">
+        <BookListItem
+          v-for="book in books.planned"
+          :key="book.id"
+          :data="book"
+        />
+      </div>
+    </BaseCard>
   </div>
 </template>

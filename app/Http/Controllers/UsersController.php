@@ -57,6 +57,7 @@ class UsersController extends Controller
         return $books->where('pivot.status', $status)->values()->map(fn ($book) => [
             'id' => $book->id,
             'title' => $book->title,
+            'cover' => $book->cover,
         ]);
     }
 }

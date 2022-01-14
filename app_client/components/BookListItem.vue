@@ -2,13 +2,13 @@
 defineProps({
   data: {
     type: Object,
-    default: () => ({}),
+    required: true,
   },
 });
 </script>
 <template>
   <InertiaLink
-    class="relative text-white word-break hover:text-ired-500"
+    class="relative font-bold text-white word-break hover:text-ired-500"
     :href="`books/${data.id}`"
     :title="data.title"
   >

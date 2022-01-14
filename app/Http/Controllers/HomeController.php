@@ -9,11 +9,11 @@ class HomeController extends Controller
     public function index()
     {
         $latestBooks = Book::latest()
-            ->limit(5)
+            ->limit(8)
             ->get();
 
         $highestRatedBooks = Book::latest()
-            ->limit(5)
+            ->limit(8)
             ->get();
 
         return inertia('Home', [

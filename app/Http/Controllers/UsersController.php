@@ -12,8 +12,8 @@ class UsersController extends Controller
         $pages = $books->where('pivot.status', 'completed')->sum('pages');
 
         $days = array();
-        for ($i = 0; $i < 30; $i++)
-            $days[] = date("M d", strtotime('-' . $i . ' days'));
+        for ($i = 0; $i <= 30; $i++)
+            $days[] = date("M d", strtotime('-' . 30 - $i . ' days'));
 
         $completedBooks = $user->books
             ->where('pivot.status', 'completed')

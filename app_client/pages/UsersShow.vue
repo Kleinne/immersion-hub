@@ -59,7 +59,7 @@ const { chartOptions } = useBooksLineChart(props.charts.line);
         </div>
       </BaseCard>
 
-      <BaseCard title="Books finished in the last 30 days" class="flex-1">
+      <BaseCard title="Books completed in the last 30 days" class="flex-1">
         <EChart :option="chartOptions" />
       </BaseCard>
     </div>

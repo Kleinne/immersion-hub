@@ -1,4 +1,6 @@
 <script setup name="UsersShow">
+import { useBooksLineChart } from '../features/useBooksLineChart.js';
+
 import BaseCard from '../components/BaseCard.vue';
 
 const props = defineProps({
@@ -7,6 +9,10 @@ const props = defineProps({
     required: true,
   },
   books: {
+    type: Object,
+    default: null,
+  },
+  charts: {
     type: Object,
     default: null,
   },
@@ -30,6 +36,8 @@ const stats = computed(() => [
     value: props.books?.pages,
   },
 ]);
+
+const { chartOptions } = useBooksLineChart(props.charts.line);
 </script>
 
 <template>
@@ -51,7 +59,9 @@ const stats = computed(() => [
         </div>
       </BaseCard>
 
-      <BaseCard class="flex-1"></BaseCard>
+      <BaseCard title="Books finished in the last 30 days" class="flex-1">
+        <EChart :option="chartOptions" />
+      </BaseCard>
     </div>
   </div>
 </template>

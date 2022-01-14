@@ -11,6 +11,28 @@ class UsersController extends Controller
         $books = $user->books;
         $pages = $books->where('pivot.status', 'completed')->sum('pages');
 
+        $days = array();
+        for ($i = 0; $i < 30; $i++)
+            $days[] = date("M d", strtotime('-' . $i . ' days'));
+
+        $completedBooks = $user->books
+            ->where('pivot.status', 'completed')
+            ->where('pivot.finished_at', '>=', now()->subDays(30)->endOfDay())
+            ->map(fn ($book) => [
+                'id' => $book->id,
+                'title' => $book->title,
+                'finished_at' => date("M d", strtotime($book->pivot->finished_at)),
+            ]);
+
+        $completedSum = 0;
+
+        $lineChart = collect(array_flip($days))
+            ->map(function ($key, $value) use ($completedBooks, &$completedSum) {
+                $count = $completedBooks->where('finished_at', $value)->count();
+                $completedSum += $count;
+                return $completedSum;
+            });
+
         return inertia('UsersShow', [
             'user' => [
                 'username' => $user->username,
@@ -21,6 +43,9 @@ class UsersController extends Controller
                 'completed' => $this->getByStatus($books, 'completed'),
                 'planned' => $this->getByStatus($books, 'planned'),
             ],
+            'charts' => [
+                'line' => $lineChart
+            ]
         ]);
     }
 

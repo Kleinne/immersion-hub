@@ -3,9 +3,9 @@ import { createInertiaApp, Link, Head } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
 
 import ECharts from 'vue-echarts';
-import { use } from 'echarts/core';
+import { use as useEChart } from 'echarts/core';
 import { CanvasRenderer } from 'echarts/renderers';
-import { BarChart } from 'echarts/charts';
+import { LineChart } from 'echarts/charts';
 import { GridComponent, TooltipComponent } from 'echarts/components';
 
 import 'vue-global-api';
@@ -17,7 +17,7 @@ import DefaultLayout from './layouts/DefaultLayout.vue';
 import BaseIcon from './components/BaseIcon.vue';
 import BaseButton from './components/BaseButton.vue';
 
-use([CanvasRenderer, BarChart, GridComponent, TooltipComponent]);
+useEChart([CanvasRenderer, LineChart, GridComponent, TooltipComponent]);
 
 createInertiaApp({
   resolve: async (name) => {

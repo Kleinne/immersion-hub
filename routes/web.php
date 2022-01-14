@@ -23,11 +23,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'create'])->name('guest.login');
     Route::post('/login', [LoginController::class, 'store'])->name('guest.login');
-    Route::post('/logout', [LoginController::class, 'destroy'])->name('guest.logout');
 
     Route::get('/register', [RegisterController::class, 'create'])->name('guest.register');
     Route::post('/register', [RegisterController::class, 'store'])->name('guest.register');
 });
+
+Route::post('/logout', [LoginController::class, 'destroy'])->middleware('auth')->name('auth.logout');
 
 // Home
 Route::get('/', fn () => redirect()->route('app.home'));
@@ -46,7 +47,7 @@ Route::prefix('books')->group(function () {
 });
 
 // Users
-Route::get('/users/{user:username}', [UsersController::class, 'show'])->whereAlphaNumeric('user')->name('app.users.show');
+Route::get('/users/{user:username}', [UsersController::class, 'show'])->whereAlphaNumeric('user');
 
 
 

@@ -1,7 +1,7 @@
 <script setup name="NavBar">
 import NavBarLinkGroup from './NavBarLinkGroup.vue';
 
-defineProps({
+const props = defineProps({
   user: {
     type: Object,
     default: null,
@@ -39,6 +39,18 @@ const authRoutes = [
     url: '/books/new',
     route: 'auth.books.new',
   },
+  {
+    name: 'Profile',
+    url: `/users/${props.user?.username}`,
+    href: `/users/${props.user?.username}`,
+  },
+  {
+    name: 'Logout',
+    url: '/logout',
+    route: 'auth.logout',
+    method: 'post',
+    as: 'button',
+  },
 ];
 </script>
 
@@ -52,17 +64,7 @@ const authRoutes = [
       <NavBarLinkGroup :items="publicLinks" />
 
       <NavBarLinkGroup v-if="!$page.props.auth" :items="loginLinks" />
-      <NavBarLinkGroup v-else :items="authRoutes">
-        <InertiaLink
-          class="font-bold hover:text-ired-500"
-          :href="`/users/${user.username}`"
-          :class="{
-            'text-ired-500': $page.url.startsWith(`/users/${user.username}`),
-          }"
-        >
-          Profile
-        </InertiaLink>
-      </NavBarLinkGroup>
+      <NavBarLinkGroup v-else :items="authRoutes" />
     </div>
   </nav>
 </template>

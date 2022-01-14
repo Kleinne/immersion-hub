@@ -9,8 +9,10 @@
     "@inertiajs/inertia": "^0.10.1",
     "@inertiajs/inertia-vue3": "^0.5.2",
     "@inertiajs/progress": "^0.2.6",
+    "echarts": "^5.2.2",
     "vee-validate": "^4.5.6",
     "vue": "3.2",
+    "vue-echarts": "^6.0.0",
     "vue-global-api": "^0.4.1"
   },
   "devDependencies": {

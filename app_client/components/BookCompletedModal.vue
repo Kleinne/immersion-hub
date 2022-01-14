@@ -1,7 +1,6 @@
 <script setup name="BookCompletedModal">
 import BaseModal from './BaseModal.vue';
 import FormDateField from './FormDateField.vue';
-import BaseButton from './BaseButton.vue';
 
 const emit = defineEmits(['clickOutside', 'submit']);
 

@@ -1,7 +1,6 @@
 <script setup name="BooksShow">
 import { Inertia } from '@inertiajs/inertia';
 
-import BaseButton from '../components/BaseButton.vue';
 import BaseCard from '../components/BaseCard.vue';
 import TextLink from '../components/TextLink.vue';
 import BookCompletedModal from '../components/BookCompletedModal.vue';

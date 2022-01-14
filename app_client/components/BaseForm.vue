@@ -1,6 +1,4 @@
 <script setup name="BaseForm">
-import BaseButton from './BaseButton.vue';
-
 const emit = defineEmits(['submit']);
 defineProps({
   loading: {

@@ -112,7 +112,8 @@ const actions = computed(() => [
           {{ book.description }}
         </p>
 
-        <p v-else>Click <TextLink>here</TextLink> to add the description.</p>
+        <!-- <p v-else>Click <TextLink>here</TextLink> to add the description.</p> -->
+        <p v-else>No description added.</p>
       </BaseCard>
 
       <BaseCard title="Data">

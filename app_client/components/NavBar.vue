@@ -33,7 +33,7 @@ const publicLinks = [
   },
 ];
 
-const authRoutes = [
+const authRoutes = computed(() => [
   {
     name: 'Add a Book',
     url: '/books/new',
@@ -51,7 +51,7 @@ const authRoutes = [
     method: 'post',
     as: 'button',
   },
-];
+]);
 </script>
 
 <template>

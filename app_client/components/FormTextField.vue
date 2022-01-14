@@ -63,6 +63,7 @@ if (props.focus) {
           v-model="inputValue"
           v-bind="$attrs"
           :id="field.name"
+          :type="field.type"
           :name="field.name"
           :placeholder="field.placeholder"
           :disabled="disabled"

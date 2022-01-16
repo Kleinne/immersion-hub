@@ -120,6 +120,7 @@ const actions = computed(() => [
         <div class="flex flex-col">
           <p>Pages: {{ book.pages }}</p>
           <p v-if="book.isbn">ISBN: {{ book.isbn }}</p>
+          <p v-if="book.author">Author: {{ book.author }}</p>
           <p v-if="book.published_at">Published at: {{ book.published_at }}</p>
         </div>
       </BaseCard>

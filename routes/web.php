@@ -4,7 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BooksSubmitController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +36,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('app.home');
 
 // Books
 Route::prefix('books')->group(function () {
+    Route::get('/', [BooksController::class, 'index'])->name('app.books');
+
     Route::get('/{book}', [BooksController::class, 'show'])->whereNumber('book')->name('app.books.show');
 
     Route::middleware('auth')->group(function () {
@@ -48,40 +50,3 @@ Route::prefix('books')->group(function () {
 
 // Users
 Route::get('/users/{user:username}', [UsersController::class, 'show'])->whereAlphaNumeric('user');
-
-
-
-/* book submitting
-Fields:
-- title
-- alternative titles
-- author
-- description
-- image
-- isbn
-- publisher
-- published date
-- pages
-- original language (?)
-- volume
-- novel / light novel / cd / manga / audiobook
-
-Order:
-1. user enters the title
-2. app checks and displays existing books with the same title
-3. dropdown of existing series, can select to add to an existing one
-4. if adds to an existing series, some fields like the author, volume, etc. are pre-filled
-5. author, publisher are to be selected from database entries, dialog (?) option to add them on the spot
-6. fill out the rest of the form
-7. can immediately create a new series and add the book to it
-8. submit the form
-
-TODO add a different addition of a book (audiobook, hardcover, etc.)
-TODO related series, but likely for series creation
-TODO series creation
-TODO type of the item (light novel, novel, audiobook, etc.)
-TODO type (main series, side story, etc.)
-TODO genre
-TODO cover
-TODO potentially generate unique book id for urls
-*/

@@ -31,6 +31,11 @@ const publicLinks = [
     url: '/home',
     route: 'app.home',
   },
+  {
+    name: 'Books',
+    url: '/books',
+    route: 'app.books',
+  },
 ];
 
 const authRoutes = computed(() => [

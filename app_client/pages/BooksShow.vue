@@ -79,7 +79,7 @@ const actions = computed(() => [
         :src="book.cover"
         class="object-contain border border-black rounded"
         style="width: 100%; height: auto"
-        alt="cover"
+        alt="volume-cover"
       />
 
       <div v-if="$page.props.auth" class="flex flex-col mt-5 space-y-2">

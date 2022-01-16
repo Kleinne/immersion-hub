@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AddBookRequest;
+use App\Models\Book;
 
 class BooksSubmitController extends Controller
 {
@@ -24,8 +25,8 @@ class BooksSubmitController extends Controller
     public function create(AddBookRequest $request)
     {
         $validated = $request->validated();
-        ddd('submission is a work in progress');
+        $book = Book::create($validated);
 
-        return redirect('/home');
+        return redirect()->route('app.books.show', [$book->id]);
     }
 }

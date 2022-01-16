@@ -23,7 +23,7 @@ class BooksController extends Controller
                 'id' => $book->id,
                 'title' => $book->title,
                 'title_en' => $book->title_en,
-                'title_romaji' => $book->title_romaji,
+                // 'title_romaji' => $book->title_romaji,
                 'aliases' => $book->aliases,
                 'pages' => $book->pages,
                 'cover' => $book->cover,

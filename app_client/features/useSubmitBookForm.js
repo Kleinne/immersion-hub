@@ -36,6 +36,7 @@ export const useSubmitBookForm = (props) => {
     publisher: null,
     isbn: null,
     description: null,
+    cover: null,
     format: props.formatOptions[0]?.value,
     published: {
       year: null,
@@ -108,6 +109,10 @@ export const useSubmitBookForm = (props) => {
       name: 'volume',
       label: 'Volume',
       type: 'number',
+    },
+    cover: {
+      name: 'cover',
+      label: 'Cover link',
     },
     description: {
       name: 'description',

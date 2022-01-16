@@ -27,7 +27,7 @@ const onSubmit = () => {
       title="Login"
       class="flex items-center justify-center max-w-3xl mx-auto mt-20"
     >
-      <BaseForm class="space-y-4" @submit="onSubmit">
+      <BaseForm class="space-y-4 w-96" @submit="onSubmit">
         <FormField v-model="form.email" :field="schema.email" :inline="false" />
         <FormField
           v-model="form.password"

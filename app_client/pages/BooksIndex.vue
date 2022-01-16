@@ -12,6 +12,8 @@ defineProps({
 </script>
 <template>
   <BaseCard title="All books in the database">
+    <InertiaHead title="Books" />
+
     <div class="flex flex-wrap gap-2">
       <BookListItem v-for="book in books.data" :key="book.id" :data="book" />
     </div>

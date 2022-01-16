@@ -6,6 +6,12 @@ use App\Models\Book;
 
 class BooksController extends Controller
 {
+    public function index()
+    {
+        $books = Book::orderBy('updated_at', 'desc')->paginate(10);
+        return inertia('BooksIndex', compact('books'));
+    }
+
     public function show(Book $book)
     {
         // TODO figure out how to improve this code

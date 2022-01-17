@@ -11,12 +11,11 @@ class Book extends Model
 
     protected $fillable = [
         'title',
-        'title_en',
-        'title_romaji',
         'description',
         'pages',
         'volume',
-        'publication_date',
+        'type',
+        'published_at',
         'isbn',
         'cover'
     ];
@@ -29,5 +28,10 @@ class Book extends Model
     public function users()
     {
         return $this->belongsToMany(User::class)->withPivot('status', 'started_at', 'finished_at')->withTimestamps();
+    }
+
+    public function aliases()
+    {
+        return $this->hasMany(Alias::class);
     }
 }

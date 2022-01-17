@@ -28,8 +28,6 @@ export const useSubmitBookForm = (props) => {
 
   const form = useForm({
     title: null,
-    title_en: null,
-    title_romaji: null,
     aliases: null,
     pages: null,
     author: [],
@@ -52,16 +50,6 @@ export const useSubmitBookForm = (props) => {
       label: 'Original title',
       required: true,
     },
-    title_en: {
-      name: 'title_en',
-      label: 'English title',
-      tooltip:
-        'If the book has an official translation, please enter its title here.',
-    },
-    title_romaji: {
-      name: 'title_romaji',
-      label: 'Title in romaji',
-    },
     aliases: {
       name: 'aliases',
       label: 'Aliases',
@@ -75,7 +63,6 @@ export const useSubmitBookForm = (props) => {
       name: 'pages',
       label: 'Pages',
       type: 'number',
-      required: true,
     },
     isbn: {
       name: 'isbn',

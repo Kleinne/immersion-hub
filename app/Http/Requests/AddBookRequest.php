@@ -27,15 +27,12 @@ class AddBookRequest extends FormRequest
     {
         return [
             'title' => 'required|max:255|string',
-            'title_en' => 'nullable|max:255|string',
-            // 'title_romaji' => 'nullable|max:255|string',
-            'aliases' => 'nullable|max:512|string',
-            'pages' => 'required|min:1|max:9999|numeric',
+            'pages' => 'nullable|min:1|max:9999|numeric',
             'isbn' => 'nullable|max:255|alpha_dash',
             'author' => 'required',
             'format' => 'required',
             'volume' => 'nullable|numeric|max:9999',
-            'published' => 'nullable|date',
+            'published_at' => 'nullable|date',
             'publisher' => 'nullable',
             'description' => 'nullable|string|max:2000',
             'cover' => 'nullable|string|max:2000',

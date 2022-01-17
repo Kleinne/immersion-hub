@@ -46,4 +46,6 @@ class Book extends Model
             ->withPivot('status', 'started_at', 'finished_at')
             ->withTimestamps();
     }
+
+    // TODO add scope for related volumes (different editions, e.g. reprints or translated volumes or audiobooks) or figure out how to store them in the database
 }

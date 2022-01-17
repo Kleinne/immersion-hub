@@ -23,7 +23,7 @@ const onSubmit = () => {
   form
     .transform((data) => ({
       ...data,
-      published: removeTimezoneOffset(
+      published_at: removeTimezoneOffset(
         new Date(
           form.published.year,
           form.published.month?.value - 1,
@@ -44,9 +44,7 @@ const onSubmit = () => {
     <BaseCard :title="title">
       <BaseForm class="max-w-xl mx-auto space-y-4" @submit="onSubmit">
         <FormField focus v-model="form.title" :field="schema.title" />
-        <FormField v-model="form.title_en" :field="schema.title_en" />
-        <!-- <FormField v-model="form.title_romaji" :field="schema.title_romaji" /> -->
-        <!-- <FormField v-model="form.aliases" :field="schema.aliases" /> -->
+        <FormField v-model="form.aliases" :field="schema.aliases" />
         <FormField v-model="form.author" :field="schema.author" />
         <FormField small v-model="form.volume" :field="schema.volume" />
         <FormField small v-model="form.pages" :field="schema.pages" />

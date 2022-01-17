@@ -46,8 +46,15 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($password);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function books()
     {
-        return $this->belongsToMany(Book::class)->withPivot('status', 'started_at', 'finished_at')->withTimestamps();
+        return $this->belongsToMany(Book::class)
+            ->withPivot('status', 'started_at', 'finished_at')
+            ->withTimestamps();
     }
 }

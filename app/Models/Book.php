@@ -25,11 +25,6 @@ class Book extends Model
         return $this->belongsToMany(Author::class);
     }
 
-    public function users()
-    {
-        return $this->belongsToMany(User::class)->withPivot('status', 'started_at', 'finished_at')->withTimestamps();
-    }
-
     public function aliases()
     {
         return $this->hasMany(Alias::class);
@@ -38,5 +33,17 @@ class Book extends Model
     public function series()
     {
         return $this->belongsTo(Series::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class)
+            ->withPivot('status', 'started_at', 'finished_at')
+            ->withTimestamps();
     }
 }

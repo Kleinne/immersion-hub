@@ -20,7 +20,7 @@ const links = [
 </script>
 
 <template>
-  <footer class="absolute bottom-0 flex items-center justify-center w-full">
+  <footer class="flex items-center justify-center w-full mt-auto">
     <div class="flex p-5 text-sm text-gray-500 max-w-max">
       <InertiaLink
         class="px-3"

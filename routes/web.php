@@ -5,6 +5,7 @@ use App\Http\Controllers\BooksController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BooksSubmitController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,7 @@ Route::prefix('books')->group(function () {
     Route::get('/', [BooksController::class, 'index'])->name('app.books');
 
     Route::get('/{book}', [BooksController::class, 'show'])->whereNumber('book')->name('app.books.show');
+    Route::get('/{book}/comments', [CommentController::class, 'index'])->whereNumber('book')->name('app.books.comments.index');
 
     Route::middleware('auth')->group(function () {
         Route::post('{book}/log', [BooksController::class, 'store'])->name('auth.books.store');

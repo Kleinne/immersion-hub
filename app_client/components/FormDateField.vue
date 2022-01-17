@@ -59,6 +59,7 @@ if (props.focus) {
           v-bind="$attrs"
           :id="field.name"
           type="date"
+          :max="field.max"
           :name="field.name"
           :placeholder="field.placeholder"
           :disabled="disabled"

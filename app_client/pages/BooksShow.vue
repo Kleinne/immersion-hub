@@ -1,9 +1,8 @@
 <script setup name="BooksShow">
-import { Inertia } from '@inertiajs/inertia';
-
 import BaseCard from '../components/BaseCard.vue';
 import TextLink from '../components/TextLink.vue';
-import BookCompletedModal from '../components/BookCompletedModal.vue';
+import BookComment from '../components/BookComment.vue';
+import BooksShowLayout from '../layouts/BooksShowLayout.vue';
 
 const props = defineProps({
   book: {
@@ -14,88 +13,17 @@ const props = defineProps({
     type: String,
     default: null,
   },
+  comments: {
+    type: Array,
+    default: null,
+  },
 });
 
-const showModal = ref(false);
-const completionDate = ref(null);
-
-const onSubmit = (action) => {
-  showModal.value = false;
-  Inertia.post(
-    `${props.book.id}/log`,
-    { data: { action, completed_at: completionDate.value } },
-    { preserveScroll: true },
-  );
-};
-
-const onClickCompleted = () => {
-  showModal.value = true;
-};
-
-const onClickOutside = () => {
-  showModal.value = false;
-};
-
-const onSubmitCompleted = (date) => {
-  completionDate.value = date;
-  onSubmit('completed');
-};
-
-const actions = computed(() => [
-  {
-    name: 'Completed',
-    icon: 'book-plus-multiple',
-    type: props.bookStatus === 'completed' ? 'secondary' : 'primary',
-    onClick: () => onClickCompleted(),
-  },
-  {
-    name: 'Reading',
-    icon: 'book-open-page',
-    type: props.bookStatus === 'reading' ? 'secondary' : 'primary',
-    onClick: () => onSubmit('reading'),
-  },
-  {
-    name: 'Plan To Read',
-    icon: 'bookshelf',
-    type: props.bookStatus === 'planned' ? 'secondary' : 'primary',
-    onClick: () => onSubmit('planned'),
-  },
-]);
+provide('booksShowProps', props);
 </script>
 
 <template>
-  <div class="flex space-x-5">
-    <InertiaHead :title="book.title" />
-
-    <BookCompletedModal
-      v-if="showModal"
-      @clickOutside="onClickOutside"
-      @submit="onSubmitCompleted"
-    />
-
-    <div class="w-[250px] desktop:w-[300px] shrink-0">
-      <img
-        v-if="book.cover"
-        :src="book.cover"
-        class="object-contain border border-black rounded"
-        style="width: 100%; height: auto"
-        alt="volume-cover"
-      />
-
-      <div v-if="$page.props.auth" class="flex flex-col mt-5 space-y-2">
-        <BaseButton
-          class="w-10/12 mx-auto"
-          v-for="action in actions"
-          :key="action.name"
-          :icon="action.icon"
-          :type="action.type"
-          @click="action.onClick"
-        >
-          {{ action.name }}
-        </BaseButton>
-      </div>
-    </div>
-
+  <BooksShowLayout v-bind="props">
     <div class="w-full">
       <BaseCard>
         <template #header>
@@ -124,6 +52,18 @@ const actions = computed(() => [
           <p v-if="book.published_at">Published at: {{ book.published_at }}</p>
         </div>
       </BaseCard>
+
+      <BaseCard v-if="comments?.length" title="Comments and impressions">
+        <BookComment
+          class="my-2"
+          v-for="comment in comments"
+          :key="comment.id"
+          :field="comment"
+        />
+        <TextLink :href="`/books/${book.id}/comments`">
+          See all comments.
+        </TextLink>
+      </BaseCard>
     </div>
-  </div>
+  </BooksShowLayout>
 </template>

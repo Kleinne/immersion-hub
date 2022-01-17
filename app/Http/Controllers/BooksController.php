@@ -78,6 +78,6 @@ class BooksController extends Controller
             ]);
         }
 
-        return redirect()->route('app.books.show', [$book->id]);
+        return redirect()->back();
     }
 }

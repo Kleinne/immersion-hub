@@ -11,7 +11,7 @@ const form = ref(null);
 const onSubmit = (action) => {
   showModal.value = false;
   Inertia.post(
-    `${props.book.id}/log`,
+    `/books/${props.book.id}/log`,
     { data: { action, ...form.value } },
     { preserveScroll: true },
   );

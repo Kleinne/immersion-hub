@@ -53,7 +53,7 @@ provide('booksShowProps', props);
         </div>
       </BaseCard>
 
-      <BaseCard v-if="comments?.length" title="Comments and impressions">
+      <BaseCard v-if="comments?.length" title="Latest comments and impressions">
         <BookComment
           class="my-2"
           v-for="comment in comments"

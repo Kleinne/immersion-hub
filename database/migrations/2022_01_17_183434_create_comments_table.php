@@ -16,8 +16,8 @@ class CreateCommentsTable extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->text('body');
-            $table->integer('user_id')->unsigned();
-            $table->integer('book_id')->unsigned();
+            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->unsignedBigInteger('book_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('user_id')

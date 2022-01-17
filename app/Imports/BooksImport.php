@@ -25,20 +25,19 @@ class BooksImport implements ToCollection
             }
 
             // convert excel date to timestamp
-            $UNIX_DATE = ($row[3] - 25569) * 86400;
+            $UNIX_DATE = ($row[2] - 25569) * 86400;
             $date = gmdate("Y-m-d", $UNIX_DATE);
 
             Book::create([
                 'title' => $row[1],
-                'title_en' => $row[2],
-                // 'title_romaji' => $row[4],
                 'published_at' => $date,
                 'volume' => $row[0],
-                'pages' => $row[5],
-                'isbn' => $row[12],
-                'cover' => $row[13],
-                'description' => $row[15],
-                'aliases' => $row[16],
+                'pages' => $row[4],
+                'type' => $row[8],
+                'isbn' => $row[9],
+                'cover' => $row[10],
+                'description' => $row[11],
+                // 'aliases' => $row[3],
             ]);
         }
     }

@@ -34,4 +34,9 @@ class Book extends Model
     {
         return $this->hasMany(Alias::class);
     }
+
+    public function series()
+    {
+        return $this->belongsTo(Series::class);
+    }
 }

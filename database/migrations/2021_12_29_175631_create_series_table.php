@@ -16,9 +16,8 @@ class CreateSeriesTable extends Migration
         Schema::create('series', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('title-en');
-            $table->string('title-romaji');
-            $table->text('description');
+            $table->string('title_en')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

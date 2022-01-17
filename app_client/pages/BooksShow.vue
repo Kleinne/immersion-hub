@@ -100,9 +100,9 @@ const actions = computed(() => [
       <BaseCard>
         <template #header>
           <h2 class="text-2xl text-bold">{{ book.title }}</h2>
-          <h3 v-if="book.title_en" class="text-lg text-gray-400">
+          <!-- <h3 v-if="book.title_en" class="text-lg text-gray-400">
             {{ book.title_en }}
-          </h3>
+          </h3> -->
         </template>
 
         <p

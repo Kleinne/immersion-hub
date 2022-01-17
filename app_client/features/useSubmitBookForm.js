@@ -63,6 +63,7 @@ export const useSubmitBookForm = (props) => {
       name: 'pages',
       label: 'Pages',
       type: 'number',
+      required: true,
     },
     isbn: {
       name: 'isbn',

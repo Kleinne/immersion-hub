@@ -27,7 +27,7 @@ class AddBookRequest extends FormRequest
     {
         return [
             'title' => 'required|max:255|string',
-            'pages' => 'nullable|min:1|max:9999|numeric',
+            'pages' => 'required|min:1|max:9999|numeric',
             'isbn' => 'nullable|max:255|alpha_dash',
             'author' => 'required',
             'format' => 'required',

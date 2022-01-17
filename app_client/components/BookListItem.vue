@@ -14,7 +14,7 @@ defineProps({
   >
     <img
       :src="data.cover"
-      class="object-contain w-[100px] h-[136px]"
+      class="object-fill w-[100px] h-[136px]"
       alt="volume-cover"
     />
 

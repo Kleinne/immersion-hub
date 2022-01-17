@@ -4,18 +4,18 @@ const links = [
     title: 'Home',
     url: '/',
   },
-  {
-    title: 'About',
-    url: '/about',
-  },
-  {
-    title: 'Contact',
-    url: '/contact',
-  },
-  {
-    title: 'FAQ',
-    url: '/faq',
-  },
+  //   {
+  //     title: 'About',
+  //     url: '/about',
+  //   },
+  //   {
+  //     title: 'Contact',
+  //     url: '/contact',
+  //   },
+  //   {
+  //     title: 'FAQ',
+  //     url: '/faq',
+  //   },
 ];
 </script>
 

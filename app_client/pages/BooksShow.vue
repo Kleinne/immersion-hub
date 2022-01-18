@@ -23,7 +23,7 @@ provide('booksShowProps', props);
 </script>
 
 <template>
-  <BooksShowLayout v-bind="props">
+  <BooksShowLayout>
     <div class="w-full">
       <BaseCard>
         <template #header>

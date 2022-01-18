@@ -26,7 +26,7 @@ const title = computed(
 </script>
 
 <template>
-  <BooksShowLayout v-bind="props">
+  <BooksShowLayout>
     <div class="w-full">
       <BaseCard :title="title">
         <template v-if="comments?.length">

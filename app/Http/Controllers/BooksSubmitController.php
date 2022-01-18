@@ -25,6 +25,8 @@ class BooksSubmitController extends Controller
     public function create(AddBookRequest $request)
     {
         $validated = $request->validated();
+        $validated['published_at'] = date('Y-m-d H:i:s', strtotime($validated['published_at']));
+
         $book = Book::create($validated);
 
         return redirect()->route('app.books.show', [$book->id]);

@@ -30,7 +30,7 @@ class CommentController extends Controller
                 ->map(fn ($comment) => [
                     'id' => uniqid(),
                     'body' => $comment->body,
-                    'updated_at' => $comment->updated_at,
+                    'updated_at' => $comment->updated_at->format('Y-m-d H:i'),
                     'user' => [
                         'username' => $comment->user->username,
                     ],

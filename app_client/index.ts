@@ -19,14 +19,20 @@ import BaseButton from './components/BaseButton.vue';
 
 useEChart([CanvasRenderer, LineChart, GridComponent, TooltipComponent]);
 
+declare global {
+  interface Window {
+    route?: any;
+  }
+}
+
 createInertiaApp({
   resolve: async (name) => {
     const page = (await import(`./pages/${name}.vue`)).default;
     page.layout = page.layout === undefined ? DefaultLayout : page.layout;
     return page;
   },
-  setup({ el, App, props, plugin }) {
-    createApp({ render: () => h(App, props) })
+  setup({ el, app, props, plugin }) {
+    createApp({ render: () => h(app, props) })
       .use(plugin)
       // ziggy
       .mixin({ methods: { route: window.route } })

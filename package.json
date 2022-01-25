@@ -1,10 +1,10 @@
 {
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.30",
   "scripts": {
     "serve": "vite",
-    "lint": "eslint ./app_client",
-    "tsc": "vue-tsc --noEmit"
+    "build": "vue-tsc --noEmit && vite build",
+    "lint": "eslint ./app_client"
   },
   "dependencies": {
     "@inertiajs/inertia": "^0.10.1",

@@ -4,6 +4,7 @@ module.exports = {
     './app_client/pages/**/*.vue',
     './app_client/layouts/**/*.vue',
     './app_client/features/**/*.js',
+    './app_client/features/**/*.ts',
   ],
   theme: {
     extend: {

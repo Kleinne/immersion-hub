@@ -10,7 +10,8 @@
     "allowJs": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"]
+    "lib": ["esnext", "dom"],
+    "isolatedModules": true
   },
   "include": [
     "app_client/**/*.ts",

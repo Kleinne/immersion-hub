@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import path from 'path';
 
 export default defineConfig(({ command }) => {
   return {
@@ -15,12 +14,12 @@ export default defineConfig(({ command }) => {
         },
       },
     },
-    resolve: {
-      alias: {
-        // TODO configure eslint
-        '@': path.resolve(__dirname, '/app_client'),
-      },
-    },
+    // TODO configure eslint
+    // resolve: {
+    //   alias: {
+    //     '@': path.resolve(__dirname, '/app_client'),
+    //   },
+    // },
     server: {
       strictPort: true,
       port: 3030,

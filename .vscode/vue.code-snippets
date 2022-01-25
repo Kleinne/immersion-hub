@@ -17,7 +17,7 @@
   "vbasens": {
     "prefix": "vbasens",
     "body": [
-      "<script setup name=\"${1}\">",
+      "<script lang=\"ts\" setup name=\"${1}\">",
       "</script>",
       "<template>$0</template>"
     ],

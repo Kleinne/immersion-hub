@@ -1,4 +1,4 @@
-<script setup name="DefaultLayout">
+<script lang="ts" setup name="DefaultLayout">
 import NavBar from '../components/NavBar.vue';
 import Footer from '../components/Footer.vue';
 </script>

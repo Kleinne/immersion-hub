@@ -1,4 +1,4 @@
-<script setup name="FormBookDateField">
+<script lang="ts" setup name="FormBookDateField">
 import { useVModel, useVModelProps } from '../features/useVModel.js';
 
 const emit = defineEmits(['update:modelValue']);

@@ -1,4 +1,4 @@
-<script setup name="GuestLayout">
+<script lang="ts" setup name="GuestLayout">
 import Footer from '../components/Footer.vue';
 import NavBar from '../components/NavBar.vue';
 </script>

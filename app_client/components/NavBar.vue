@@ -1,4 +1,4 @@
-<script setup name="NavBar">
+<script lang="ts" setup name="NavBar">
 import NavBarLinkGroup from './NavBarLinkGroup.vue';
 
 const props = defineProps({

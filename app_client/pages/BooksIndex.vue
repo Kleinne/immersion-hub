@@ -1,4 +1,4 @@
-<script setup name="BooksIndex">
+<script lang="ts" setup name="BooksIndex">
 import BaseCard from '../components/BaseCard.vue';
 import BookListItem from '../components/BookListItem.vue';
 import TextLink from '../components/TextLink.vue';

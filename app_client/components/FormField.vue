@@ -1,4 +1,4 @@
-<script setup name="FormField">
+<script lang="ts" setup name="FormField">
 import { useVModel, useVModelProps } from '../features/useVModel.js';
 
 import FormTextField from './FormTextField.vue';

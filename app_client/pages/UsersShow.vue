@@ -1,4 +1,4 @@
-<script setup name="UsersShow">
+<script lang="ts" setup name="UsersShow">
 import { useBooksLineChart } from '../features/useBooksLineChart.js';
 
 import BaseCard from '../components/BaseCard.vue';

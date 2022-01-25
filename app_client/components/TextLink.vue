@@ -1,4 +1,4 @@
-<script setup name="TextLink">
+<script lang="ts" setup name="TextLink">
 defineProps({
   href: {
     type: String,

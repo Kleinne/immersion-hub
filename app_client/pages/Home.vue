@@ -1,4 +1,4 @@
-<script setup name="Home">
+<script lang="ts" setup name="Home">
 import HomeLatestBooks from '../components/HomeLatestBooks.vue';
 import HomeHighestRatedBooks from '../components/HomeHighestRatedBooks.vue';
 

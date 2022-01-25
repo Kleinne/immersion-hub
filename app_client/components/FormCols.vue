@@ -1,4 +1,4 @@
-<script setup name="FormCols">
+<script lang="ts" setup name="FormCols">
 defineProps({
   single: {
     type: Boolean,

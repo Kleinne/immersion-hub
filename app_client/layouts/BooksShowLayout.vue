@@ -1,4 +1,4 @@
-<script setup name="BooksShowLayout">
+<script lang="ts" setup name="BooksShowLayout">
 import { Inertia } from '@inertiajs/inertia';
 
 import BookCompletedModal from '../components/BookCompletedModal.vue';

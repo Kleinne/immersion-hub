@@ -1,4 +1,4 @@
-<script setup name="FormSelectField">
+<script lang="ts" setup name="FormSelectField">
 import { useVModel, useVModelProps } from '../features/useVModel.js';
 
 const emit = defineEmits(['update:modelValue']);

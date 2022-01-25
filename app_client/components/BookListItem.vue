@@ -1,4 +1,4 @@
-<script setup name="BookListItem">
+<script lang="ts" setup name="BookListItem">
 defineProps({
   data: {
     type: Object,

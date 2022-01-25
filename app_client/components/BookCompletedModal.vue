@@ -1,4 +1,4 @@
-<script setup name="BookCompletedModal">
+<script lang="ts" setup name="BookCompletedModal">
 import BaseModal from './BaseModal.vue';
 import FormDateField from './FormDateField.vue';
 import FormTextareaField from './FormTextareaField.vue';

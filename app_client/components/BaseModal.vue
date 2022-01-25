@@ -1,4 +1,4 @@
-<script setup name="BaseModal">
+<script lang="ts" setup name="BaseModal">
 const emit = defineEmits(['clickOutside']);
 defineProps({
   to: {

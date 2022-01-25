@@ -1,4 +1,4 @@
-<script setup name="BaseForm">
+<script lang="ts" setup name="BaseForm">
 const emit = defineEmits(['submit']);
 defineProps({
   loading: {

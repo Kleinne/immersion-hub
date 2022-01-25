@@ -1,4 +1,4 @@
-<script setup name="BaseCard">
+<script lang="ts" setup name="BaseCard">
 defineProps({
   title: {
     type: String,

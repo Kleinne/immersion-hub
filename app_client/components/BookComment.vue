@@ -1,4 +1,4 @@
-<script setup name="BookComment">
+<script lang="ts" setup name="BookComment">
 defineProps({
   field: {
     type: Object,

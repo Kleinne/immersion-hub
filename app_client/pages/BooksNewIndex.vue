@@ -1,4 +1,4 @@
-<script setup name="BooksNewIndex">
+<script lang="ts" setup name="BooksNewIndex">
 import { useSubmitBookForm } from '../features/useSubmitBookForm.js';
 import { removeTimezoneOffset } from '../features/useDateUtils.js';
 

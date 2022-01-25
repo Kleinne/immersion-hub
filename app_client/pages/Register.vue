@@ -1,4 +1,4 @@
-<script setup name="Register">
+<script lang="ts" setup name="Register">
 import BaseCard from '../components/BaseCard.vue';
 import BaseForm from '../components/BaseForm.vue';
 import FormField from '../components/FormField.vue';

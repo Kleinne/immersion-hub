@@ -1,4 +1,4 @@
-<script setup name="NavBarLinkGroup">
+<script lang="ts" setup name="NavBarLinkGroup">
 defineProps({
   items: {
     type: Array,

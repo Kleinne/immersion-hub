@@ -1,4 +1,4 @@
-<script setup name="BaseIcon">
+<script lang="ts" setup name="BaseIcon">
 const props = defineProps({
   icon: {
     type: String,

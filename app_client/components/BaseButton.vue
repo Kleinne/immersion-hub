@@ -1,4 +1,4 @@
-<script setup name="BaseButton">
+<script lang="ts" setup name="BaseButton">
 import BaseIcon from './BaseIcon.vue';
 
 const props = defineProps({

@@ -1,4 +1,4 @@
-<script setup name="Footer">
+<script lang="ts" setup name="Footer">
 const links = [
   {
     title: 'Home',

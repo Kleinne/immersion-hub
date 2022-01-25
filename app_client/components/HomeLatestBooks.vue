@@ -1,4 +1,4 @@
-<script setup name="HomeLatestBooks">
+<script lang="ts" setup name="HomeLatestBooks">
 import BaseCard from './BaseCard.vue';
 import BookListItem from './BookListItem.vue';
 

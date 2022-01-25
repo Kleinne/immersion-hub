@@ -1,4 +1,4 @@
-<script setup name="BooksShowComments">
+<script lang="ts" setup name="BooksShowComments">
 import BaseCard from '../components/BaseCard.vue';
 import BookComment from '../components/BookComment.vue';
 import BooksShowLayout from '../layouts/BooksShowLayout.vue';

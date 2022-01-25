@@ -6,21 +6,24 @@ module.exports = {
   },
   extends: [
     'plugin:vue/vue3-strongly-recommended',
-    'eslint:recommended',
-    'airbnb-base',
+    'airbnb-typescript',
     'vue-global-api',
     'plugin:prettier/recommended',
+    '@vue/typescript',
+    '@vue/typescript/recommended',
+    '@vue/prettier/@typescript-eslint',
   ],
   parserOptions: {
-    parser: '@babel/eslint-parser',
+    parser: '@typescript-eslint/parser',
     ecmaVersion: 13,
     sourceType: 'module',
   },
-  plugins: ['vue'],
+  plugins: ['vue', '@typescript-eslint'],
   rules: {
     'import/prefer-default-export': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'import/extensions': ['error', 'ignorePackages'],
     'no-unused-vars': 'warn',
+    // '@typescript-eslint/no-this-alias': ['off'],
   },
 };
